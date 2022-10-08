@@ -1,0 +1,55 @@
+<h1>Basic POKEDEX</h1>
+
+<hr />
+
+<div class="search-bar">
+  <input
+    type="text"
+    placeholder="Buscar Pokemon"
+    #txtSearch
+    (keyup)="onSearchPokemon(txtSearch.value)"
+  />
+  <button
+    (click)="onSearchPokemon(txtSearch.value)"
+  >
+    Buscar
+  </button>
+</div>
+
+<mat-paginator
+  [length]="paginatorOptions.length"
+  [pageSizeOptions]="paginatorOptions.pageSizeOptions"
+  [pageSize]="20"
+  (page)="OnPageChange($event)"
+  aria-label="Select page">
+</mat-paginator>
+
+<div class="container">
+  <div
+    class="pokedex-card"
+    *ngFor="let pokemon of pokemonArraySlice"
+    [style.background-color]='typeColors[pokemon.types[0]]'
+    >
+    <div class="pokedex-head">
+      <h2 class="poke-name">{{ pokemon.name }}</h2>
+      <h2 class="poke-id">#{{ pokemon.id }}</h2>
+    </div>
+    <ng-template #elseBlock>undefined</ng-template>
+    <div class="pokedex-cont">
+      <div class="poke-types">
+        <span *ngFor="let type of pokemon.types">
+          {{ type }}
+        </span>
+      </div>
+      <img [src]="pokemon.img" [alt]="pokemon.name + '-' + pokemon.id" />
+    </div>
+  </div>
+</div>
+
+<mat-paginator
+  [length]="paginatorOptions.length"
+  [pageSizeOptions]="paginatorOptions.pageSizeOptions"
+  [pageSize]="20"
+  (page)="OnPageChange($event)"
+  aria-label="Select page">
+</mat-paginator>
