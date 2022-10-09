@@ -19,8 +19,39 @@ hr {
   margin: 20px 0;
 
   &>input {
-    height: 3vh;
+    height: 5vh;
     width: 50%;
+    padding: 0 60px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 10px 0 0 10px;
+    font-size: 16px;
+    background-image: url('https://cdn-icons.flaticon.com/svg/3917/3917754.svg?token=exp=1665296862~hmac=e6b7b534b7e8adf024df2dc15a20cb13');
+    background-position: 20px center;
+    background-repeat: no-repeat;
+    background-size: 2.5vh;
+    background-blend-mode: luminosity;
+  }
+
+  &>button {
+    box-sizing: border-box;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    background-color: #be202f;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100px;
+    transition: ease;
+    cursor: pointer;
+
+    &:hover {
+      font-size: 18px;
+    }
+
+    &:active {
+      font-size: 14px;
+    }
   }
 }
 

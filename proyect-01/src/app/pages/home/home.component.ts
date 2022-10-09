@@ -13,12 +13,9 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private serviceService: ServiceService,
-  ) {
-    this.pokemonArraySlice = this.pokemonArray.slice(0, 20);
-  }
+  ) {}
 
   pokemonData: Pokemon[] = [];
-  pokemonArray: Pokemon[] = [];
   pokemonArraySlice: Pokemon[] = [];
 
   paginatorOptions: any = {
@@ -32,13 +29,11 @@ export class HomeComponent implements OnInit {
 
   getData () {
     this.serviceService.getAllPokemons().subscribe((data: any) => {
-      const pokeData: Pokemon[] = data.results.map((data: any) => {
+      data.results.map((data: any) => {
         const pokeInfo = this.getPokemones(data.url);
 
-        return pokeInfo;
+        this.pokemonData.push(pokeInfo);
       });
-
-      this.pokemonData = pokeData;
 
       this.paginatorOptions.length = this.pokemonData.length;
       this.pokemonArraySlice = this.pokemonData.slice(0, 20);
@@ -47,13 +42,21 @@ export class HomeComponent implements OnInit {
 
   getPokemones(url: string) {
     const data = this.serviceService.getPokemons(url);
-    let pokeInfo = {};
+    let pokeInfo: Pokemon = {
+      id: 0,
+      name: '',
+      types: [],
+      img: '',
+      weight: 0,
+      height: 0,
+      stats: [],
+      moves: [],
+    };
 
     data.subscribe((data: any) => {
       const item: Pokemon = this.moldPokemonData(data);
 
       Object.assign(pokeInfo, item);
-      this.pokemonArray.push(item);
     });
 
     return pokeInfo;
@@ -96,11 +99,11 @@ export class HomeComponent implements OnInit {
       endIndex = this.pokemonData.length;
     }
 
-    this.pokemonArraySlice = this.pokemonArray.slice(startIndex, endIndex);
+    this.pokemonArraySlice = this.pokemonData.slice(startIndex, endIndex);
   }
 
   onSearchPokemon(input: string) {
-    const filteredPokemons = this.pokemonArray
+    const filteredPokemons = this.pokemonData
     .filter(poke => poke.name.includes(input));
 
     this.pokemonArraySlice = filteredPokemons;

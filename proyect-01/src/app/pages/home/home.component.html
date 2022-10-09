@@ -29,7 +29,7 @@
     class="pokedex-card"
     *ngFor="let pokemon of pokemonArraySlice"
     [style.background-color]='typeColors[pokemon.types[0]]'
-    >
+  >
     <div class="pokedex-head">
       <h2 class="poke-name">{{ pokemon.name }}</h2>
       <h2 class="poke-id">#{{ pokemon.id }}</h2>
