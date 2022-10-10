@@ -5,8 +5,15 @@ export interface Pokemon {
   img: string,
   weight: number,
   height: number,
-  stats: Object[],
+  stats: any[],
   moves: string[],
+}
+
+export interface BasePokemonInfo {
+  id: number,
+  name: string,
+  types: string[],
+  img: string
 }
 
 export interface PokemonFirstInfo {

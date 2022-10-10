@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 
 /* Modelos */
-import { Pokemon } from 'src/app/models/pokemon.model';
+import { BasePokemonInfo } from 'src/app/models/pokemon.model';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -13,8 +13,8 @@ export class PokemonListComponent implements OnInit {
 
   constructor() { }
 
-  @Input() pokemonData: Pokemon[] = [];
-  @Input() pokemonArraySlice: Pokemon[] = [];
+  @Input() pokemonData: BasePokemonInfo[] = [];
+  @Input() pokemonArraySlice: BasePokemonInfo[] = [];
   @Input() paginatorOptions: any = {
     length: 0,
     pageSizeOptions: []

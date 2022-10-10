@@ -9,12 +9,14 @@ import { MaterialExampleModule } from '../material.module';
 import { MatNativeDateModule } from '@angular/material/core';
 import { PokemonListComponent } from './home/pokemon-list/pokemon-list.component';
 import { PokemonCardComponent } from './home/pokemon-list/pokemon-card/pokemon-card.component';
+import { PokemonComponent } from './pokemon/pokemon.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     PokemonListComponent,
     PokemonCardComponent,
+    PokemonComponent,
   ],
   imports: [
     CommonModule,

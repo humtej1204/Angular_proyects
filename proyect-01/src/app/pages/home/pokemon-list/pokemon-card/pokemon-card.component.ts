@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Pokemon } from 'src/app/models/pokemon.model';
+import { BasePokemonInfo } from 'src/app/models/pokemon.model';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -10,15 +10,11 @@ export class PokemonCardComponent implements OnInit {
 
   constructor() { }
 
-  @Input() pokemon: Pokemon = {
+  @Input() pokemon: BasePokemonInfo = {
     id: 0,
     name: '',
     types: [],
     img: '',
-    weight: 0,
-    height: 0,
-    stats: [],
-    moves: [],
   };
 
   typeColors: any = {

@@ -1,0 +1,20 @@
+<div>
+  <p>id: {{ pokemonInfo.id }}</p>
+  <p>name: {{ pokemonInfo.name }}</p>
+  <p>types: {{ pokemonInfo.types }}</p>
+  <img [src]="pokemonInfo.img" [alt]="pokemonInfo.name">
+  <p>weight: {{ pokemonInfo.weight }}</p>
+  <p>height: {{ pokemonInfo.height }}</p>
+  <p>
+    stats:
+  </p>
+  <p *ngFor="let stat of pokemonInfo.stats">
+    <span>{{ stat.name }}:
+      <progress [value]="stat.base_stat" [max]="pokeStats[stat.name]">
+        {{ stat.base_stat }}
+      </progress>
+      {{ stat.base_stat }} de {{ pokeStats[stat.name] }}
+    </span>
+  </p>
+  <p>{{ pokemonInfo.moves }}</p>
+</div>

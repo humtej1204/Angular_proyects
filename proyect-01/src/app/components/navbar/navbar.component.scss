@@ -1,5 +1,25 @@
 .example-spacer {
   flex: 1 1 auto;
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    list-style: none;
+    font-size: 18px;
+
+    li {
+      margin: 0 20px;
+
+      a {
+        text-decoration: none;
+
+        &:visited {
+          color: white;
+        }
+      }
+    }
+  }
 }
 .example-icon {
   border: none;
@@ -14,3 +34,5 @@
     transform: scale(0.9);
   }
 }
+
+

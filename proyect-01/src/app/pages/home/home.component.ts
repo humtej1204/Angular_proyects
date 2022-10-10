@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Pokemon } from '../../models/pokemon.model';
+import { BasePokemonInfo } from '../../models/pokemon.model';
 import { ServiceService } from 'src/app/services/service.service';
 
 @Component({
@@ -14,8 +14,8 @@ export class HomeComponent implements OnInit {
     private serviceService: ServiceService,
   ) {}
 
-  pokemonData: Pokemon[] = [];
-  pokemonArraySlice: Pokemon[] = [];
+  pokemonData: BasePokemonInfo[] = [];
+  pokemonArraySlice: BasePokemonInfo[] = [];
 
   paginatorOptions: any = {
     length: 0,

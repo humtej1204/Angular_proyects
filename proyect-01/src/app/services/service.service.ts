@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
-import { Pokemon, PokemonFirstInfo } from '../models/pokemon.model';
+import { Pokemon, PokemonFirstInfo, BasePokemonInfo } from '../models/pokemon.model';
 
 @Injectable({
   providedIn: 'root'
@@ -28,17 +28,24 @@ export class ServiceService {
     return data;
   }
 
+  getPokemon(id: number) {
+    return this.http.get(`${this.url}/${id}`)
+      .pipe(
+        map((data) => this.moldPokemonData(data))
+      );
+  };
+
+  getPokemons(url: string) {
+    return this.http.get(url);
+  };
+
   getPokemones(url: string) {
     const data = this.getPokemons(url);
-    let pokeInfo: Pokemon = {
+    let pokeInfo: BasePokemonInfo = {
       id: 0,
       name: '',
       types: [],
-      img: '',
-      weight: 0,
-      height: 0,
-      stats: [],
-      moves: [],
+      img: ''
     };
 
     data.subscribe((data: any) => {
@@ -82,10 +89,4 @@ export class ServiceService {
 
     return (item);
   }
-
-  getPokemons(url: string) {
-    const data = this.http.get(url);
-
-    return data
-  };
 }
