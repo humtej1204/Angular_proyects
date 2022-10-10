@@ -2,7 +2,7 @@
   <mat-paginator
     [length]="paginatorOptions.length"
     [pageSizeOptions]="paginatorOptions.pageSizeOptions"
-    [pageSize]="20"
+    [pageSize]="paginatorOptions.pageSize"
     (page)="OnPageChange($event)"
     aria-label="Select page">
   </mat-paginator>
@@ -17,7 +17,7 @@
   <mat-paginator
     [length]="paginatorOptions.length"
     [pageSizeOptions]="paginatorOptions.pageSizeOptions"
-    [pageSize]="20"
+    [pageSize]="paginatorOptions.pageSize"
     (page)="OnPageChange($event)"
     aria-label="Select page">
   </mat-paginator>

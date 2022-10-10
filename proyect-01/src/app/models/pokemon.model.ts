@@ -13,7 +13,7 @@ export interface BasePokemonInfo {
   id: number,
   name: string,
   types: string[],
-  img: string
+  img: string,
 }
 
 export interface PokemonFirstInfo {

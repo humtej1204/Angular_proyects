@@ -1,20 +1,69 @@
-<div>
-  <p>id: {{ pokemonInfo.id }}</p>
-  <p>name: {{ pokemonInfo.name }}</p>
-  <p>types: {{ pokemonInfo.types }}</p>
-  <img [src]="pokemonInfo.img" [alt]="pokemonInfo.name">
-  <p>weight: {{ pokemonInfo.weight }}</p>
-  <p>height: {{ pokemonInfo.height }}</p>
-  <p>
-    stats:
-  </p>
-  <p *ngFor="let stat of pokemonInfo.stats">
-    <span>{{ stat.name }}:
-      <progress [value]="stat.base_stat" [max]="pokeStats[stat.name]">
-        {{ stat.base_stat }}
-      </progress>
-      {{ stat.base_stat }} de {{ pokeStats[stat.name] }}
-    </span>
-  </p>
-  <p>{{ pokemonInfo.moves }}</p>
-</div>
+<section class="pokedex-container">
+  <div class="pokedex-card">
+    <div class="baseInfo">
+      <div class="image">
+        <img [src]="pokemonInfo.img" [alt]="pokemonInfo.name">
+        <div class="pokeId">#{{ pokemonInfo.id }}</div>
+        <img
+          class="typeImage"
+          [src]="types[pokemonInfo.types[0]].image"
+          [alt]="pokemonInfo.name"
+        >
+      </div>
+      <div class="data">
+        <p class="pokeName">{{ pokemonInfo.name }}</p>
+        <div class="pokeTypes">
+          <span
+            *ngFor="let type of pokemonInfo.types"
+            [style.background-color]="types[type].color"
+          >{{ type }}</span>
+        </div>
+        <div class="bodyInfo">
+          <div class="info">
+            <span class="label">
+              weight
+            </span>
+            <span class="data">
+              {{ pokemonInfo.weight / 10}} Kg
+            </span>
+          </div>
+          <div class="info">
+            <span class="label">
+              height
+            </span>
+            <span class="data">
+              {{ pokemonInfo.height / 10 }} Mts
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="moreInfo">
+      <p class="label">
+        Base Stats:
+      </p>
+      <ul class="stats">
+        <li *ngFor="let stat of pokemonInfo.stats">
+          <span class="label-tag">{{ stat.name }}:</span>
+          <div class="progress-bar">
+            <div class="progress-width"
+              [style.width]="getProgressWith(stat.base_stat, pokeStats[stat.name].maxValue)"
+              [style.background-color]="pokeStats[stat.name].color"
+            >&nbsp;</div>
+            <span class="progress-content">
+              {{ stat.base_stat }} / {{ pokeStats[stat.name].maxValue }}
+            </span>
+          </div>
+        </li>
+      </ul>
+      <hr>
+      <p class="label">
+        Moves:
+      </p>
+      <ul class="moves">
+        <li *ngFor="let move of pokemonInfo.moves">{{ move }}</li>
+      </ul>
+    </div>
+  </div>
+</section>

@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
 
   paginatorOptions: any = {
     length: 0,
+    pageSize: 20,
     pageSizeOptions: [10, 20, 50, 100]
   }
 

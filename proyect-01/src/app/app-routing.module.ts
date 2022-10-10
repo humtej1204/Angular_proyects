@@ -8,10 +8,10 @@ const routes: Routes = [
     path: 'home', component: HomeComponent
   },
   {
-    path: 'pokemon', component: PokemonComponent
+    path: '', pathMatch: 'full', redirectTo: 'home'
   },
   {
-    path: '**', pathMatch: 'full', redirectTo: 'home'
+    path: 'pokemon/:pokeId', component: PokemonComponent
   },
 ];
 

@@ -28,7 +28,7 @@ export class ServiceService {
     return data;
   }
 
-  getPokemon(id: number) {
+  getPokemon(id: string) {
     return this.http.get(`${this.url}/${id}`)
       .pipe(
         map((data) => this.moldPokemonData(data))
@@ -45,7 +45,7 @@ export class ServiceService {
       id: 0,
       name: '',
       types: [],
-      img: ''
+      img: '',
     };
 
     data.subscribe((data: any) => {
