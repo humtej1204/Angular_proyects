@@ -1,0 +1,19 @@
+<div
+  class="pokedex-card"
+  *ngIf="pokemon.img !== null"
+  [style.background-color]='typeColors[pokemon.types[0]]'
+>
+  <div class="pokedex-head">
+    <h2 class="poke-name">{{ pokemon.name }}</h2>
+    <h2 class="poke-id">#{{ pokemon.id }}</h2>
+  </div>
+  <ng-template #elseBlock>undefined</ng-template>
+  <div class="pokedex-cont">
+    <div class="poke-types">
+      <span *ngFor="let type of pokemon.types">
+        {{ type }}
+      </span>
+    </div>
+    <img [src]="pokemon.img" [alt]="pokemon.name + '-' + pokemon.id" />
+  </div>
+</div>

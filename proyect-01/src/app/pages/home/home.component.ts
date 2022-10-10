@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { Pokemon } from '../../models/pokemon.model';
 import { ServiceService } from 'src/app/services/service.service';
-import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-home',
@@ -71,7 +70,7 @@ export class HomeComponent implements OnInit {
       stats: [],
       types: [],
       moves: [],
-      img: data.sprites.other['official-artwork'].front_default,
+      img: '',
     }
 
     item.stats = data.stats.map((e: any) => {
@@ -88,18 +87,11 @@ export class HomeComponent implements OnInit {
       return (e.move.name);
     });
 
+    item.img = (data.sprites.other['official-artwork'].front_default === null)
+      ? 'https://img.icons8.com/color/480/nothing-found.png'
+      : data.sprites.other['official-artwork'].front_default;
+
     return (item);
-  }
-
-  OnPageChange(event: PageEvent) {
-    const startIndex = event.pageIndex * event.pageSize;
-    let endIndex = startIndex + event.pageSize;
-
-    if (endIndex > this.pokemonData.length) {
-      endIndex = this.pokemonData.length;
-    }
-
-    this.pokemonArraySlice = this.pokemonData.slice(startIndex, endIndex);
   }
 
   onSearchPokemon(input: string) {
@@ -108,25 +100,4 @@ export class HomeComponent implements OnInit {
 
     this.pokemonArraySlice = filteredPokemons;
   }
-
-  typeColors: any = {
-    normal: '#DDCCAA',
-    fighting: '#FF6A6A',
-    flying: '#BAAAFF',
-    poison: '#CC88BB',
-    ground: '#DEB887',
-    rock: '#CD853F',
-    bug: '#99CC33',
-    ghost: '#778899',
-    fire: '#FF7F00',
-    water: '#B0E2FF',
-    grass: '#99FF66',
-    electric: '#FFD700',
-    psychic: '#FFB5C5',
-    ice: '#ADD8E6',
-    dragon: '#AB82FF',
-    dark: '#A9A9A9',
-    fairy: '#FFB0FF',
-    steel: '#CCCCCC'
-  };
 }

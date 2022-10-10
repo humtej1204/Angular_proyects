@@ -1,0 +1,24 @@
+<div>
+  <mat-paginator
+    [length]="paginatorOptions.length"
+    [pageSizeOptions]="paginatorOptions.pageSizeOptions"
+    [pageSize]="20"
+    (page)="OnPageChange($event)"
+    aria-label="Select page">
+  </mat-paginator>
+
+  <div class="container">
+    <app-pokemon-card
+      [pokemon]="pokemon"
+      *ngFor="let pokemon of pokemonArraySlice"
+    ></app-pokemon-card>
+  </div>
+
+  <mat-paginator
+    [length]="paginatorOptions.length"
+    [pageSizeOptions]="paginatorOptions.pageSizeOptions"
+    [pageSize]="20"
+    (page)="OnPageChange($event)"
+    aria-label="Select page">
+  </mat-paginator>
+</div>
