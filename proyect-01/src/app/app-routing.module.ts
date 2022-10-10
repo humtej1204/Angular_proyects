@@ -7,8 +7,11 @@ const routes: Routes = [
     path: 'home', component: HomeComponent
   },
   {
+    path: 'pokemon', component: HomeComponent
+  },
+  {
     path: '**', pathMatch: 'full', redirectTo: 'home'
-  }
+  },
 ];
 
 @NgModule({

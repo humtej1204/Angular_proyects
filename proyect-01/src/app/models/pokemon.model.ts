@@ -8,3 +8,8 @@ export interface Pokemon {
   stats: Object[],
   moves: string[],
 }
+
+export interface PokemonFirstInfo {
+  name: string,
+  url: string,
+}
