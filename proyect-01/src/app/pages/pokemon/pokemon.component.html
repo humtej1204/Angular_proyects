@@ -1,4 +1,6 @@
 <section class="pokedex-container">
+  <a [routerLink]="['/pokemon', goPrev()]"
+    class="prev button-chgPage"></a>
   <div class="pokedex-card">
     <div class="baseInfo">
       <div class="image">
@@ -66,4 +68,6 @@
       </ul>
     </div>
   </div>
+  <a [routerLink]="['/pokemon', goNext()]"
+    class="next button-chgPage"></a>
 </section>

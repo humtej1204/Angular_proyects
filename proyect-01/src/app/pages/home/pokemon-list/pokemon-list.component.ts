@@ -18,6 +18,7 @@ export class PokemonListComponent implements OnInit {
   @Input() paginatorOptions: any = {
     length: 0,
     pageSize: 0,
+    pageIndex: 0,
     pageSizeOptions: []
   }
 
@@ -34,5 +35,4 @@ export class PokemonListComponent implements OnInit {
     this.pokemonArraySlice = this.pokemonData.slice(startIndex, endIndex);
     this.paginatorOptions.pageSize = event.pageSize;
   }
-
 }

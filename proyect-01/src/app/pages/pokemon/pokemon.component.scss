@@ -1,5 +1,5 @@
 .pokedex-container {
-  height: 90vh;
+  height: calc(100vh - 80px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,14 +39,19 @@
     .pokeId {
       position: absolute;
       z-index: 10;
-      font-size: 5vh;
+      font-size: 4vh;
       font-weight: bold;
-      color: rgba(100, 100, 100, 0.75);
+      color: #fff;
+      text-shadow: -2px -2px 3px #333,
+        2px -2px 3px #333,
+        -2px 2px 3px #333,
+        2px 2px 3px #333;
       display: flex;
       justify-content: center;
       align-items: center;
-      left: 3vh;
-      top: 5vh;
+      left: 2vh;
+      top: 4vh;
+      // -webkit-text-stroke: 1px #fbbc05;
     }
 
     .typeImage {
@@ -61,11 +66,12 @@
   .data {
 
     .pokeName {
-      font-size: 5vh;
+      font-size: 4vh;
       font-weight: bold;
+      line-height: normal;
       color: white;
       text-transform: capitalize;
-      margin: 4vh;
+      margin: 3vh;
       text-align: center;
     }
 
@@ -109,7 +115,7 @@
         }
 
         .data {
-          font-size: 3vh;
+          font-size: 2.5vh;
           font-weight: 600;
           color: #fff;
         }
@@ -202,4 +208,47 @@
       border-radius: 100%;
     }
   }
+}
+
+.button-chgPage {
+  background-color: #fbbc05;
+  height: 10vh;
+  width: 10vh;
+  margin: 5vh;
+  border-radius: 100%;
+  text-decoration: none;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+
+}
+
+.prev::before {
+  content: '';
+  position: absolute;
+  height: 10vh;
+  width: 10vh;
+  background-image: url('https://img.icons8.com/sf-black/344/circled-chevron-right.png');
+  background-position: 0;
+  background-size: 10vh;
+  background-repeat: no-repeat;
+  transform: rotate(180deg);
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(28deg) brightness(102%) contrast(105%);
+}
+
+.next::before {
+  content: '';
+  position: absolute;
+  height: 10vh;
+  width: 10vh;
+  background-image: url('https://img.icons8.com/sf-black/344/circled-chevron-right.png');
+  background-position: 0;
+  background-size: 10vh;
+  background-repeat: no-repeat;
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(28deg) brightness(102%) contrast(105%);
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Pokemon } from 'src/app/models/pokemon.model';
+import { Pokemon, PokemonTypes } from 'src/app/models/pokemon.model';
 
 import { ServiceService } from 'src/app/services/service.service';
 
@@ -151,5 +151,21 @@ export class PokemonComponent implements OnInit {
   getProgressWith(cant:number, total:number) {
     const value = (cant / total) * 100;
     return (value.toFixed(2) + '%');
+  }
+
+  goNext() {
+    if (this.pokemonInfo.id == 905) {
+      return ('10001');
+    } else if (this.pokemonInfo.id == 10249) {
+      return ('1');
+    }
+    return (this.pokemonInfo.id + 1);
+  }
+
+  goPrev() {
+    if (this.pokemonInfo.id === 1) {
+      return ('10249');
+    }
+    return (this.pokemonInfo.id - 1);
   }
 }

@@ -1,4 +1,4 @@
-<a href="/pokemon/{{ pokemon.id }}">
+<a [routerLink]="['/pokemon', pokemon.id]">
   <div
     class="pokedex-card"
     *ngIf="pokemon.img !== null"

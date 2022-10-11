@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { BasePokemonInfo } from 'src/app/models/pokemon.model';
 
 @Component({

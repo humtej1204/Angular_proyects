@@ -3,6 +3,8 @@
     [length]="paginatorOptions.length"
     [pageSizeOptions]="paginatorOptions.pageSizeOptions"
     [pageSize]="paginatorOptions.pageSize"
+    [pageIndex]="paginatorOptions.pageIndex"
+    [showFirstLastButtons]="true"
     (page)="OnPageChange($event)"
     aria-label="Select page">
   </mat-paginator>
@@ -18,6 +20,8 @@
     [length]="paginatorOptions.length"
     [pageSizeOptions]="paginatorOptions.pageSizeOptions"
     [pageSize]="paginatorOptions.pageSize"
+    [pageIndex]="paginatorOptions.pageIndex"
+    [showFirstLastButtons]="true"
     (page)="OnPageChange($event)"
     aria-label="Select page">
   </mat-paginator>
