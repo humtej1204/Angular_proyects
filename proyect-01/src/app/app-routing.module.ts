@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './guards/auth.guard';
+import { ExitGuard } from './guards/exit.guard';
 
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -20,7 +21,9 @@ const routes: Routes = [
     path: 'pokemon/:pokeId', component: PokemonComponent
   },
   {
-    path: 'register', component: RegisterComponent
+    path: 'register',
+    component: RegisterComponent,
+    canDeactivate: [ExitGuard]
   },
   {
     path: 'login', component: LoginComponent
