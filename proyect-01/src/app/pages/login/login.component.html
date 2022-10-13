@@ -16,7 +16,12 @@
       </button>
     </mat-form-field>
 
-    <button mat-stroked-button color="primary">Log In</button>
+    <button
+      mat-stroked-button color="primary"
+      (click)="login()"
+    >
+      Log In
+    </button>
 
     <p class="redirectRegister">
       <span>First time here? </span><a href="/register">Sing up</a>
