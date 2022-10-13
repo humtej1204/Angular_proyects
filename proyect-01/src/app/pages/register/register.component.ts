@@ -18,9 +18,9 @@ export class RegisterComponent implements OnInit {
   hide = true;
 
   newUser: UserDTO = {
-    email: 'haru1204@gmail.com',
+    email: 'haru1204@hmail.com',
     password: '123456',
-    name: 'harumon',
+    name: 'harumonster',
   };
 
   ngOnInit(): void {

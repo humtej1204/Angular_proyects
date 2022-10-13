@@ -3,6 +3,7 @@ export interface User {
   email: string,
   password: string,
   name: string,
+  // role: 'user' | 'admin',
 }
 
 export interface UserDTO extends Omit<User, 'id'> {  }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
 
 import { Auth } from '../../models/auth.model';
@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private router: Router,
   ) { }
 
   hide = true;
@@ -38,6 +39,7 @@ export class LoginComponent implements OnInit {
         })
       ).subscribe((profile: User) => {
         console.log(profile);
+        this.router.navigateByUrl('profile')
       });
   }
 

@@ -5,7 +5,7 @@
   <span>Basic Header</span>
   <span class="example-spacer">
     <ul class="links-list">
-      <li>
+      <li *ngIf="!user">
         <a routerLink="/login">Login</a>
       </li>
       <li>
@@ -14,10 +14,15 @@
       <li>
         <a routerLink="/pokemon/6">Pokemon-template Page</a>
       </li>
-      <li>
+      <li *ngIf="!user">
         <a routerLink="/register">Registrarse</a>
       </li>
     </ul>
+  </span>
+  <span *ngIf="user">
+    User Loged:
+    <a routerLink="/profile"> {{ user.name }} </a>
+    <button (click)="logout()">LogOut</button>
   </span>
   <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
     <mat-icon>favorite</mat-icon>
