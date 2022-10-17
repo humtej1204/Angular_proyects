@@ -41,5 +41,4 @@ export class PokemonCardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

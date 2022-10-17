@@ -3,25 +3,28 @@
 
     <span class="tittle">Log In</span>
 
-    <mat-form-field appearance="fill">
-      <mat-label>User</mat-label>
-      <input matInput>
-    </mat-form-field>
+    <form [formGroup]="loginForm" (ngSubmit)="sendData($event)">
+      <mat-form-field appearance="fill">
+        <mat-label>User</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Enter your password</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'">
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'"
+        formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button
+        mat-stroked-button color="primary"
+        type="submit"
+      >
+        Log In
       </button>
-    </mat-form-field>
-
-    <button
-      mat-stroked-button color="primary"
-      (click)="login()"
-    >
-      Log In
-    </button>
+    </form>
 
     <p class="redirectRegister">
       <span>First time here? </span><a href="/register">Sing up</a>

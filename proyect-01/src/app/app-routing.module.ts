@@ -9,6 +9,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { PokemonComponent } from './pages/pokemon/pokemon.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { FormTemplateComponent } from './pages/form-template/form-template.component';
+
 
 const routes: Routes = [
   {
@@ -23,15 +25,21 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
-    canDeactivate: [ExitGuard]
+    canDeactivate: [ExitGuard],
   },
   {
-    path: 'login', component: LoginComponent
+    path: 'login',
+    component: LoginComponent,
   },
   {
     path: 'profile',
     component: ProfileComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'form-test',
+    component: FormTemplateComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: '**', pathMatch: 'full', redirectTo: 'home'

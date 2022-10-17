@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Pokemon, PokemonTypes } from 'src/app/models/pokemon.model';
+import { Pokemon } from 'src/app/models/pokemon.model';
 
 import { ServiceService } from 'src/app/services/service.service';
 
@@ -37,19 +37,19 @@ export class PokemonComponent implements OnInit {
       color: '#d63944',
     },
     attack: {
-      maxValue: 120,
+      maxValue: 190,
       color: '#faaa22',
     },
     defense: {
-      maxValue: 180,
+      maxValue: 250,
       color: '#1891df',
     },
     'special-attack': {
-      maxValue: 175,
+      maxValue: 194,
       color: '#fa70a1',
     },
     'special-defense': {
-      maxValue: 110,
+      maxValue: 250,
       color: '#14b0d1',
     },
     speed: {
@@ -133,6 +133,8 @@ export class PokemonComponent implements OnInit {
     }
   };
 
+  pokemonType: string = "";
+
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.pokemonId = params.get('pokeId');
@@ -145,6 +147,7 @@ export class PokemonComponent implements OnInit {
   getPokemonData(id: string) {
     this.serviceService.getPokemon(id).subscribe((data: Pokemon) => {
       this.pokemonInfo = data;
+      this.pokemonType = this.types[this.pokemonInfo.types[0]].image;
     });
   }
 
@@ -165,6 +168,8 @@ export class PokemonComponent implements OnInit {
   goPrev() {
     if (this.pokemonInfo.id === 1) {
       return ('10249');
+    } else if (this.pokemonInfo.id === 10001) {
+      return ('905');
     }
     return (this.pokemonInfo.id - 1);
   }

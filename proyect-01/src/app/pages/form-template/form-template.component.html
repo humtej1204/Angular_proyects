@@ -1,0 +1,209 @@
+<div class="container">
+  <div class="form-container">
+    <p>
+      <label for="username">Username: </label>
+      <input type="text" id="username" name="username" size="30"
+        [formControl]="username"
+      />
+    </p>
+
+    <p>
+      <label for="pass">Password (8 characters minimum): </label>
+      <input
+        type="password"
+        id="pass"
+        name="password"
+        required
+        [formControl]="password"/>
+    </p>
+    <p *ngIf="password.touched">
+      <strong *ngIf="password.hasError('required')">
+        Este Campo es Requerido
+      </strong>
+      <strong *ngIf="password.hasError('minlength')">
+        Este Campo debe tener como minimo 8 characters
+      </strong>
+    </p>
+    <p *ngIf="password.dirty && password.hasError('maxlength')">
+      <strong>
+        Este Campo debe tener como maximo 16 characters
+      </strong>
+    </p>
+
+    <p>
+      <label for="age">Age: </label>
+      <input type="number" name="age" min="0" max="100"
+      [formControl]="age"/>
+    </p>
+
+    <p>
+      <label for="phone">Enter your celphone number: </label>
+      <input type="tel"
+        id="phone"
+        name="phone"
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+        placeholder="999-999-999"
+        [formControl]="cellphone"/>
+    </p>
+
+    <form>
+      <label for="emailAddress">E-mail: </label>
+      <input
+        type="email"
+        size="50"
+        name="emailAddress"
+        maxlength="50"
+        required
+        placeholder="username@gmail.com"
+        pattern=".+@.+\.com"
+        title="Please provide only a Best Startup Ever corporate e-mail address"
+        [formControl]="email"/>
+      <input type="submit" value="Confirm valid email" />
+    </form>
+
+    <br>
+
+    <p>
+      <label for="calendar">Start date: </label>
+      <input type="date" name="calendar"
+      [formControl]="date"/>
+    </p>
+
+    <p>
+      <label for="appt-time">Choose an appointment time: </label>
+      <input id="appt-time"
+        type="time"
+        name="appt-time"
+        step="2"
+        required
+        [formControl]="timeHour"/>
+    </p>
+
+    <p>
+      <label for="meeting-time">Choose a time for your appointment: </label>
+      <input type="datetime-local" name="meeting-time"
+      [formControl]="dateTime"/>
+    </p>
+
+    <p>
+      <label for="file">Choose a file to upload: </label>
+      <input type="file" name="file" accept="*" multiple size="2" />
+    </p>
+
+    <div class="check-radio">
+
+      <fieldset>
+        <legend>Choose your favorite Animes: </legend>
+        <div>
+          <input type="checkbox"
+          [formControl]="check"/>
+          <label>Estas de acuerdo con los terminos y condiciones</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Choose your type gender: </legend>
+
+        <div>
+          <input type="radio" id="male" name="gender" value="male"
+          [formControl]="radio">
+          <label for="male">Male</label>
+        </div>
+
+        <div>
+          <input type="radio" id="female" name="gender" value="female"
+          [formControl]="radio">
+          <label for="female">Female</label>
+        </div>
+      </fieldset>
+
+    </div>
+
+    <br>
+
+    <div>
+      <label for="backgroundColor">Background Color: </label>
+      <input type="color" name="backgroundColor"
+      [formControl]="color"/>
+    </div>
+
+    <br>
+
+    <div class="range-content">
+
+      <div class="range-marks">
+        <p>Size Settings:</p>
+        <input type="range" id="temp" name="temp" list="tickmarks"
+          min="0" max="100" step="10"
+          [formControl]="sizeRange"/>
+        <datalist id="tickmarks">
+          <option value="0" label="min"></option>
+          <option
+            *ngFor="let i of [10, 20, 30, 40, 50, 60, 70, 80, 90]"
+            [value]="i">
+          </option>
+          <option value="100" label="max"></option>
+        </datalist>
+      </div>
+
+      <div>
+        <p>Audio settings:</p>
+        <label for="volume">Volumen: </label>
+        <input type="range" id="volume" name="volume" min="0" max="100"
+        [formControl]="audioRange"/>
+      </div>
+
+    </div>
+
+    <br />
+
+    <div class="select-container">
+      <div>
+        <span>Select an element: </span>
+        <select [formControl]="select">
+          <option value="none">Choose an Element</option>
+          <option value="fire">Fuego</option>
+          <option value="water">Agua</option>
+          <option value="air">Aire</option>
+          <option value="ground">Tierra</option>
+        </select>
+      </div>
+
+      <div>
+        <span>Select some elements: </span>
+        <select [formControl]="multipleSelect" multiple>
+          <option value="none">Choose an Element</option>
+          <option value="fire">Fuego</option>
+          <option value="water">Agua</option>
+          <option value="air">Aire</option>
+          <option value="ground">Tierra</option>
+        </select>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="form-results">
+    <p>{{ username.value }}</p>
+    <p>{{ password.value }}</p>
+    <p>{{ age.value }}</p>
+    <p>{{ cellphone.value }}</p>
+    <p>{{ email.value }}</p>
+    <p>{{ date.value }}</p>
+    <p>{{ timeHour.value }}</p>
+    <p>{{ dateTime.value }}</p>
+    <p>{{ color.value }}</p>
+    <p>{{ audioRange.value }}</p>
+    <div [style.width]="sizeRange.value + '%'"
+      [style.height]="sizeRange.value + 'px'"
+      [style.background-color]="color.value"
+    >
+      &nbsp;
+    </div>
+    <p>{{ sizeRange.value }}</p>
+    <p>{{ select.value }}</p>
+    <p>{{ multipleSelect.value }}</p>
+    <p>{{ radio.value }}</p>
+    <p>{{ check.value }}</p>
+  </div>
+</div>
