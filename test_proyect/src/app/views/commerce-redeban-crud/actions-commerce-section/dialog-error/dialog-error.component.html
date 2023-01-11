@@ -1,0 +1,9 @@
+<div mat-dialog-content class="content">
+  <mat-icon color="warn">cancel</mat-icon>
+  <h2>Error en el Proceso</h2>
+  <span>{{data.errorMsg}}</span>
+</div>
+<div mat-dialog-actions class="btn-container" align="center">
+  <button mat-flat-button
+  [mat-dialog-close]="true">OK</button>
+</div>

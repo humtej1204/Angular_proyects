@@ -1,0 +1,16 @@
+<div mat-dialog-content class="content">
+  <mat-icon color="warn">warning</mat-icon>
+  <h2>¿Estas seguro de que deseas eliminar este {{element}}?</h2>
+  <span>Esta accion no podra deshacerce una vez ejecutada</span>
+</div>
+<div mat-dialog-actions align="center" class="btn-container">
+  <button mat-stroked-button
+  [mat-dialog-close]="true">
+    Cancelar
+  </button>
+  <button mat-flat-button color="primary"
+  (click)="deleteElement()"
+  [mat-dialog-close]="true">
+    Aceptar
+  </button>
+</div>

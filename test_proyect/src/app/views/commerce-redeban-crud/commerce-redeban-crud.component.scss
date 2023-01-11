@@ -1,0 +1,372 @@
+section.main {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  background-color: #ccc;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 40px;
+    width: 80%;
+    min-width: 1000px;
+    gap: 50px;
+    background-color: #fff;
+
+    .search-section {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+
+      .button-section {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .btn-btn {
+          width: 100%;
+          background-color: #0031a0;
+          color: #fff;
+        }
+      }
+    }
+
+    .cards-section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 800px);
+      grid-template-areas:
+      ". detail-card"
+      ". detail-card";
+      gap: 20px;
+    }
+  }
+}
+
+mat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+
+  mat-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    height: 50px;
+
+    mat-card-title {
+      margin: 0 !important;
+      color: #0031a0;
+      font-weight: 600;
+    }
+
+    mat-icon {
+      color: #F29A2F;
+    }
+  }
+
+  mat-card-content {
+    width: 100%;
+    height: calc(100% - 50px);
+    overflow-y: auto;
+  }
+}
+
+mat-card.detail-card {
+  grid-area: detail-card;
+}
+
+::ng-deep.mat-card-header-text {
+  margin: 0 !important;
+}
+
+table {
+  width: 100%;
+
+  tr {
+    height: 75px !important;
+  }
+
+  .check-column {
+    span {
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    mat-slide-toggle {
+      align-self: center;
+    }
+  }
+
+  .info-column {
+    * {
+      margin: 0;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .data {
+      font-weight: 400;
+    }
+  }
+
+  tr {
+    &:hover {
+      background-color: #eee;
+      cursor: pointer;
+    }
+
+    &:active {
+      background-color: #ddd;
+    }
+  }
+}
+
+.uniqueCode-table-section {
+  height: 60%;
+  overflow-y: auto;
+
+  .item-terminals-section {
+    height: 40%;
+  }
+}
+
+.highlighted {
+  background-color: #eee;
+}
+
+.detail-card>mat-card-content {
+  padding: 0 10px;
+  box-sizing: border-box;
+  overflow: unset;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .codigosUnicos-section, .usuarios-section {
+    height: calc(50% - 10px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .error-message {
+      color: #999;
+      font-weight: 500;
+      font-size: 16px;
+      padding: 20px;
+    }
+  }
+
+  .header-detail-content {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+
+    span {
+      display: flex;
+
+      h3 {
+        color: #666;
+        font-weight: 600;
+        font-size: 18px;
+        margin: 0;
+      }
+
+      mat-icon {
+        color: #F29A2F;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .body-detail-content {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 100%;
+    height: calc(100% - 60px);
+    overflow-y: auto;
+    gap: 10px;
+  }
+
+  .codigosUnicos-section>.body-detail-content {
+    .item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-content: center;
+      width: 100%;
+      gap: 10px;
+      box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .item-code-section {
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+      width: 100%;
+
+      .item-info {
+        span {
+          font-weight: 600;
+          font-size: 14px;
+          color: #0031a0;
+        }
+
+        h4 {
+          font-weight: 400;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .item-terminals-section {
+      width: 100%;
+
+      .header-subsection {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        border-bottom: #999 solid 1px;
+
+        h3 {
+          font-weight: 600;
+          color: #666;
+          margin: 0;
+        }
+      }
+
+      .terminal-items {
+        overflow-y: auto;
+      }
+
+      .terminal-item {
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        padding: 15px 0;
+      }
+
+      span {
+        margin: auto 0;
+      }
+    }
+  }
+
+  .usuarios-section>.body-detail-content {
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+      width: 100%;
+      gap: 10px;
+      box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .item-data {
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+      gap: 20px;
+
+      .item-icon {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        mat-icon {
+          font-size: 35px;
+          width: 35px;
+          height: 35px;
+          color: #666;
+        }
+
+        .toggle {
+          display: flex;
+          flex-direction: column;
+
+          span {
+            font-size: 12px;
+            text-align: center;
+          }
+        }
+      }
+
+      .item-info {
+        span.data {
+          font-weight: 600;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+.data-card>mat-card-content form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  gap: 20px;
+
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0031a0;
+    text-align: center;
+    margin: 0;
+  }
+
+  .service-section, .comerceType-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .service-section {
+    .check-section {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .check-div {
+      background-color: #c1d2f6;
+      border-radius: 20px;
+      width: 33%;
+      padding: 15px 10px;
+
+      mat-checkbox {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .comerceType-section {
+    .radio-section {
+      display: flex;
+      gap: 20px;
+      padding: 0 10px;
+
+      mat-radio-button {
+        flex-grow: 1;
+      }
+    }
+  }
+}

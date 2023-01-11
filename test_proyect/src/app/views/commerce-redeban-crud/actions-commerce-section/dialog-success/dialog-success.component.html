@@ -1,0 +1,19 @@
+<div mat-dialog-content class="content">
+  <mat-icon>info_outlined</mat-icon>
+  <h2>{{data.tittle}}</h2>
+  <span>{{data.subtittle}}</span>
+</div>
+<div mat-dialog-actions class="btn-container" align="center">
+  <button mat-flat-button color="primary"
+  *ngIf="this.data.next !== ''"
+  [mat-dialog-close]="true"
+  (click)="vincular()">
+    Vincular
+  </button>
+  <button mat-button *ngIf="this.data.next !== ''"
+  [mat-dialog-close]="true">Regresar</button>
+  <button mat-flat-button color="primary"
+  *ngIf="this.data.next === ''"
+  (click)="reloadPage()"
+  [mat-dialog-close]="true">Aceptar</button>
+</div>

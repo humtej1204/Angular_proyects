@@ -1,0 +1,119 @@
+<h2 mat-dialog-title>{{tittleMode}} NIT</h2>
+<mat-dialog-content>
+  <form [formGroup]="nitForm" class="nitForm">
+    <div class="nit-section w-full">
+      <mat-form-field appearance="outline">
+        <mat-label>NIT</mat-label>
+        <input matInput
+        formControlName="codigoNIT"
+        maxlength="10"
+        (keypress)="validateFormat($event, 'Numeric')"
+        [readonly]="readonly"
+        placeholder="Escriba aquí">
+        <mat-error *ngIf="!nitForm.get('codigoNIT')?.valid">
+          {{nitMsgError}}
+        </mat-error>
+      </mat-form-field>
+
+      <span class="hyphen-separator">-</span>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Digito de Chequeo</mat-label>
+        <input matInput
+        formControlName="digitoChequeo"
+        maxlength="2"
+        (keypress)="validateFormat($event, 'Alphanumeric')"
+        placeholder="Escriba aquí">
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Razón Social</mat-label>
+      <input matInput
+      formControlName="razonSocial"
+      maxlength="40"
+      (keypress)="validateFormat($event, 'Alphanumeric')"
+      placeholder="Escriba aquí">
+    </mat-form-field>
+
+    <div class="toggle-section">
+      <label>Estado:</label>
+
+      <div class="toggle-item">
+        <span>Inactivo</span>
+        <mat-slide-toggle color="primary"
+        formControlName="flagEstado">
+        </mat-slide-toggle>
+        <span>Activo</span>
+      </div>
+    </div>
+  </form>
+
+  <mat-card class="data-card">
+    <mat-card-header class="flex justify-between content-center items-center">
+      <mat-card-title>Datos de Contacto</mat-card-title>
+      <mat-icon>group</mat-icon>
+    </mat-card-header>
+
+    <mat-card-content class="flex flex-col justify-center">
+      <form [formGroup]="servicesForm" class="servicesForm">
+        <div class="service-section">
+          <h3>Servicio</h3>
+          <div class="check-section flex justify-between content-center gap-6">
+            <div class="check-div" *ngFor="let option of servicesOptions">
+              <mat-checkbox color="primary"
+              [disabled]="readonly"
+              [formControlName]="option.value">
+                {{ option.name }}
+              </mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <form [formGroup]="nitForm" class="nitForm">
+        <div class="comerceType-section">
+          <h3>Tipo de Comercio</h3>
+          <mat-radio-group class="radio-section"
+          [disabled]="readonly"
+          formControlName="tipoComercio">
+            <mat-radio-button color="primary"
+            *ngFor="let option of commerceType"
+            [value]="option.value">
+              {{ option.name }}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="infoMessage">
+    <mat-icon>
+      notifications
+    </mat-icon>
+    <span>
+      Los campos marcados con asterisco (*) son obligatorios para poder continuar con el proceso.
+    </span>
+  </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button mat-raised-button color="primary"
+  *ngIf="data.mode === 'CREATE'"
+  (click)="validarNit()"
+  [disabled]="!validateForms()">
+    Crear NIT
+  </button>
+  <button mat-raised-button color="primary"
+  *ngIf="data.mode === 'EDIT'"
+  (click)="saveChanges()"
+  [disabled]="!validateForms()">
+    Guardar Cambios
+  </button>
+  <button mat-button
+  mat-dialog-close>
+    Cancelar
+  </button>
+</mat-dialog-actions>

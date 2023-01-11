@@ -1,0 +1,216 @@
+<h2 mat-dialog-title>Consulta de Usuario</h2>
+<mat-dialog-content>
+  <form [formGroup]="userForm">
+    <div class="commerceNit w-full">
+      <span>
+        NIT:
+      </span>
+      <span class="data">
+        {{ data.nit }}
+      </span>
+    </div>
+
+    <mat-form-field appearance="outline"
+    class="w-full">
+      <mat-label>Tipo de Usuario *</mat-label>
+      <mat-select [disabled]="data !== null">
+        <mat-option *ngFor="let option of tipoUsuarioOptions" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Primer Nombre *</mat-label>
+      <input matInput
+      formControlName="primerNombre"
+      [readonly]="data !== null">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Segundo Nombre</mat-label>
+      <input matInput
+      formControlName="segundoNombre"
+      [readonly]="data !== null">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Primer Apellido *</mat-label>
+      <input matInput
+      formControlName="primerApellido"
+      [readonly]="data !== null">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Segundo Apellido</mat-label>
+      <input matInput
+      formControlName="segundoApellido"
+      [readonly]="data !== null">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Tipo de Documento *</mat-label>
+      <input matInput
+      formControlName="tipoDocumento"
+      [readonly]="data !== null">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Numero de Documento *</mat-label>
+      <input matInput
+      formControlName="nroDocumento"
+      [readonly]="data !== null">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Correo *</mat-label>
+      <input matInput
+      formControlName="correo"
+      [readonly]="data !== null">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Celular *</mat-label>
+      <input matInput
+      formControlName="celular"
+      [readonly]="data !== null">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Ciudad</mat-label>
+      <input matInput
+      formControlName="ciudad"
+      [readonly]="data !== null">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Estado</mat-label>
+      <input matInput
+      [value]="getEstadoUsuario(userForm.get('estado')?.value)"
+      [readonly]="data !== null">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline"
+    class="w-full">
+      <mat-label>Direccion *</mat-label>
+      <mat-select [disabled]="data !== null"
+      formControlName="direccion"
+      >
+        <mat-option *ngFor="let option of tipoViaOptions" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="viaData">
+      <mat-form-field appearance="outline">
+        <mat-label>Via Principal *</mat-label>
+        <input matInput
+        formControlName="viaPrincipal"
+        [readonly]="data !== null">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Anexo 1</mat-label>
+        <mat-select [disabled]="data !== null"
+        formControlName="anexo1"
+        >
+          <mat-option *ngFor="let option of anexo1Options" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Anexo 2</mat-label>
+        <mat-select [disabled]="data !== null"
+        formControlName="anexo2ViaPrincipal"
+        >
+          <mat-option *ngFor="let option of anexo2Options" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="viaData">
+      <mat-icon>
+        tag
+      </mat-icon>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Via Secundaria *</mat-label>
+        <input matInput
+        formControlName="anexo2ViaSecundaria"
+        [readonly]="data !== null">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Anexo 2</mat-label>
+        <mat-select [disabled]="data !== null"
+        formControlName="anexo2ViaSenduaria"
+        >
+          <mat-option *ngFor="let option of anexo2Options" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="viaData">
+      <mat-icon>
+        tag
+      </mat-icon>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Via Complementaria *</mat-label>
+        <input matInput
+        formControlName="viaComplementaria"
+        [readonly]="data !== null">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Anexo 3</mat-label>
+        <mat-select [disabled]="data !== null"
+        formControlName="anexo3"
+        >
+          <mat-option *ngFor="let option of anexo3Options" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline"
+    class="w-full">
+      <mat-label>Detalle de la Dirección</mat-label>
+      <textarea matInput rows="4"
+      formControlName="detalleDireccion"
+      [readonly]="data !== null"></textarea>
+    </mat-form-field>
+
+  </form>
+
+  <div class="infoMessage" [formGroup]="userForm">
+    <mat-checkbox
+      color="primary"
+      [disabled]="true"
+      formControlName="terminos">
+    </mat-checkbox>
+    <span>
+      Acepto los
+      <a>Terminos y Condiciones</a>
+        y
+      <a>Politicas de Privacidad</a>
+        del producto
+    </span>
+  </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button mat-raised-button color="primary"
+  [mat-dialog-close]="true">
+    Volver
+  </button>
+</mat-dialog-actions>

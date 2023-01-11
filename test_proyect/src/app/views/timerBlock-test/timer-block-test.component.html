@@ -1,0 +1,21 @@
+<section>
+  <div class="form-section">
+    <span>Errors: {{ errorCounter }}</span>
+    <button class="add-error"
+    [disabled]="dissableBtn"
+    (click)="addError()">
+      +
+    </button>
+  </div>
+
+  <div class="timer-section">
+    <span>Timer:</span>
+    <span>00:00</span>
+  </div>
+
+  <button class="btn-login"
+  (click)="blockUser()"
+  [disabled]="dissableBtn">
+    login
+  </button>
+</section>

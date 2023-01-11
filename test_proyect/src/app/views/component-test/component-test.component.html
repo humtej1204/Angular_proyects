@@ -1,0 +1,12 @@
+<section class="flex-vertical-center">
+    <div class="container">
+      <app-subcomponent-test
+      *ngFor="let item of data"
+      [data]="item"
+      >
+      </app-subcomponent-test>
+      <ul>
+        <li *ngFor="let item of cartItems">{{ item.title }}, {{ item.description }}</li>
+      </ul>
+    </div>
+</section>

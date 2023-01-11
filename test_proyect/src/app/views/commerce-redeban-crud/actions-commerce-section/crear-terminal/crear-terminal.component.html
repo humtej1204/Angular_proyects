@@ -1,0 +1,75 @@
+<h2 mat-dialog-title>{{tittleMode}} Terminal</h2>
+<mat-dialog-content>
+  <form [formGroup]="terminalForm" class="terminalForm">
+    <div class="label-section w-full">
+      <div class="label-info">
+        <label>
+          NIT:
+        </label>
+        <span class="data">
+          {{ data.nit }} - {{data.digitoChequeo}}
+        </span>
+      </div>
+      <div class="label-info">
+        <label>
+          Código Único:
+        </label>
+        <span class="data">
+          {{ data.uniqueCode }}
+        </span>
+      </div>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Terminal</mat-label>
+      <input matInput
+      [style.text-transform]="'uppercase'"
+      formControlName="terminal"
+      (keypress)="validateFormat($event, 'Alphanumeric')"
+      maxlength="10">
+    </mat-form-field>
+
+
+    <div class="toggle-section">
+      <label>Estado:</label>
+
+      <div class="toggle-item">
+        <span>Inactivo</span>
+        <mat-slide-toggle
+          color="primary"
+          formControlName="estadoTerminal">
+        </mat-slide-toggle>
+        <span>Activo</span>
+      </div>
+    </div>
+  </form>
+
+  <div class="infoMessage">
+    <mat-icon>
+      notifications
+    </mat-icon>
+    <span>
+      Los campos marcados con asterisco (*) son obligatorios para poder continuar con el proceso.
+    </span>
+  </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button mat-raised-button color="primary"
+  *ngIf="data.mode === 'CREATE'"
+  [disabled]="terminalForm.invalid"
+  (click)="validateCommerceType()">
+    Crear Terminal
+  </button>
+  <button mat-raised-button color="primary"
+  *ngIf="data.mode === 'EDIT'"
+  [disabled]="terminalForm.invalid"
+  (click)="saveChanges()">
+    Guardar Cambios
+  </button>
+  <button mat-button
+  mat-dialog-close>
+    Volver
+  </button>
+</mat-dialog-actions>

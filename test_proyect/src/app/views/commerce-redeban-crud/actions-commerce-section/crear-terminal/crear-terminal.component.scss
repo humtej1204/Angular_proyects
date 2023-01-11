@@ -1,0 +1,79 @@
+h2 {
+  color: #0031a0;
+  font-weight: 600;
+  padding-bottom: 15px;
+  border-bottom: #ccc solid 1px;
+}
+
+mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px 0;
+
+  form, mat-card, .infoMessage {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+.terminalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .label-info {
+    margin: 10px 0;
+    font-size: 18px;
+
+    span {
+      font-weight: 600;
+      margin-left: 10px;
+      color: #0031a0;
+    }
+  }
+
+  .toggle-section {
+    label {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .toggle-item {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+
+      span {
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.infoMessage {
+  margin: 10px auto;
+  padding: 25px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-top: #ccc solid 1px;
+
+  mat-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F29A2F;
+  }
+}
+
+.w-full {
+  width: 100%;
+}

@@ -1,0 +1,169 @@
+h2 {
+  color: #0031a0;
+  font-weight: 600;
+  padding-bottom: 15px;
+  border-bottom: #ccc solid 1px;
+}
+
+mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px 0;
+
+  form, .infoMessage {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+.nitForm {
+  .nit-section {
+    display: flex;
+    gap: 20px;
+
+    mat-form-field:nth-child(1) {
+      width: 70%;
+    }
+
+    .hyphen-separator {
+      font-size: 30px;
+      transform: translateY(-10px);
+      margin: auto 0;
+    }
+
+    mat-form-field:nth-child(2) {
+      width: 25%;
+    }
+  }
+
+  .toggle-section {
+    label {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .toggle-item {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+
+      span {
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.data-card>mat-card-content {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  gap: 20px;
+
+
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0031a0;
+    text-align: center;
+    margin: 0;
+  }
+
+  .service-section, .comerceType-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .service-section {
+    .check-section {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .check-div {
+      background-color: #c1d2f6;
+      border-radius: 20px;
+      width: 33%;
+      padding: 15px 10px;
+
+      mat-checkbox {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .comerceType-section {
+    padding: 20px 0;
+
+    .radio-section {
+      display: flex;
+      gap: 20px;
+      padding: 0 10px;
+
+      mat-radio-button {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+mat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+
+  mat-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    height: 50px;
+    border-bottom: #ccc solid 1px;
+
+    mat-card-title {
+      margin: 0 !important;
+      color: #0031a0;
+      font-weight: 600;
+    }
+
+    mat-icon {
+      color: #F29A2F;
+    }
+  }
+
+  mat-card-content {
+    width: 100%;
+  }
+}
+
+.infoMessage {
+  margin: 10px auto;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  mat-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F29A2F;
+  }
+}
+
+.w-full {
+  width: 100%;
+}

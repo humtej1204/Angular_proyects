@@ -1,0 +1,33 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 20px;
+  text-align: center;
+
+  mat-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    width: 90%;
+  }
+
+  span {
+    font-size: 16px;
+    font-weight: 400;
+    width: 90%;
+  }
+}
+
+.btn-container {
+  display: flex;
+  gap: 20px;
+}

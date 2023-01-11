@@ -1,0 +1,224 @@
+<h2 mat-dialog-title>{{tittleMode}} Código Único</h2>
+<mat-dialog-content>
+  <form [formGroup]="codigoUnicoForm">
+    <div class="commerceNit w-full">
+      <span>
+        NIT:
+      </span>
+      <span class="data">
+        {{ data.nit }} - {{ data.digitoChequeo }}
+      </span>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Codigo Unico</mat-label>
+      <input matInput
+      formControlName="codigoUnico"
+      maxlength="10"
+      (keypress)="validateFormat($event, 'Numeric')"
+      [readonly]="readonly">
+      <mat-error *ngIf="!codigoUnicoForm.get('codigoUnico')?.valid">
+        {{codigoUnicoMsgError}}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre del Comercio</mat-label>
+      <input matInput
+      formControlName="nombreComercio"
+      maxlength="40"
+      (keypress)="validateFormat($event, 'Alphanumeric')"
+      [readonly]="readonly && !canEdit">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Alias</mat-label>
+      <input matInput
+      formControlName="alias"
+      maxlength="30"
+      (keypress)="validateFormat($event, 'Alphanumeric')"
+      [readonly]="readonly && !canEdit">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Ciudad</mat-label>
+      <input matInput
+      formControlName="ciudad"
+      maxlength="40"
+      (keypress)="validateFormat($event, 'Alphanumeric')"
+      [readonly]="readonly && !canEdit">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline"
+    class="w-full">
+      <mat-label>Direccion</mat-label>
+      <mat-select [disabled]="readonly && !canEdit"
+      (selectionChange)="validateDirectionValidators($event.value)"
+      formControlName="direccion"
+      >
+        <mat-option *ngFor="let option of tipoViaOptions" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="viaData" *ngIf="codigoUnicoForm.get('direccion')?.value !== 'Otros'">
+      <mat-form-field appearance="outline">
+        <mat-label>Via Principal</mat-label>
+        <input matInput
+        formControlName="viaPrincipal"
+        maxlength="100"
+        (keypress)="validateFormat($event, 'Alphanumeric')"
+        [readonly]="readonly && !canEdit">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Anexo 1</mat-label>
+        <mat-select [disabled]="readonly && !canEdit"
+        formControlName="anexo1"
+        >
+          <mat-option *ngFor="let option of anexo1Options" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Anexo 2</mat-label>
+        <mat-select [disabled]="readonly && !canEdit"
+        formControlName="anexo2"
+        >
+          <mat-option *ngFor="let option of anexo2Options" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="viaData" *ngIf="codigoUnicoForm.get('direccion')?.value !== 'Otros'">
+      <mat-icon>
+        tag
+      </mat-icon>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Via Secundaria</mat-label>
+        <input matInput
+        formControlName="viaSecundaria"
+        maxlength="100"
+        (keypress)="validateFormat($event, 'Alphanumeric')"
+        [readonly]="readonly && !canEdit">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Anexo 2</mat-label>
+        <mat-select [disabled]="readonly && !canEdit"
+        formControlName="anexo2ViaSenduaria"
+        >
+          <mat-option *ngFor="let option of anexo2Options" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="viaData" *ngIf="codigoUnicoForm.get('direccion')?.value !== 'Otros'">
+      <mat-icon>
+        tag
+      </mat-icon>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Via Complementaria</mat-label>
+        <input matInput
+        formControlName="viaComplementaria"
+        maxlength="100"
+        (keypress)="validateFormat($event, 'Alphanumeric')"
+        [readonly]="readonly && !canEdit">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Anexo 3</mat-label>
+        <mat-select [disabled]="readonly && !canEdit"
+        formControlName="anexo3"
+        >
+          <mat-option *ngFor="let option of anexo3Options" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline"
+    class="w-full">
+      <mat-label>Detalle de la Dirección</mat-label>
+      <textarea matInput rows="4"
+      maxlength="200"
+      (keypress)="validateFormat($event, 'Alphanumeric')"
+      formControlName="detalleDireccion"
+      [readonly]="readonly && !canEdit"></textarea>
+    </mat-form-field>
+
+    <div class="check-section w-full">
+      <label id="radio-group-label">¿Cuentas con codigo PSE?</label>
+      <mat-radio-group color="primary"
+      [(ngModel)]="hasCodigoPSE"
+      [ngModelOptions]="{standalone: true}"
+      [disabled]="readonly && !canEdit"
+      (change)="validatePSEValidators($event.value)"
+      aria-labelledby="radio-group-label">
+        <mat-radio-button [value]="true"
+        [checked]="hasCodigoPSE">Si</mat-radio-button>
+        <mat-radio-button [value]="false"
+        [checked]="!hasCodigoPSE">No</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <mat-form-field appearance="outline"
+    *ngIf="hasCodigoPSE">
+      <mat-label>Codigo PSE</mat-label>
+      <input matInput
+      formControlName="codigoPSE"
+      maxlength="10"
+      (keypress)="validateFormat($event, 'Numeric')"
+      [readonly]="readonly && !canEdit">
+    </mat-form-field>
+
+    <div class="toggle-section w-full">
+      <span>Inactivo</span>
+      <mat-slide-toggle
+        color="primary"
+        [disabled]="readonly && !canEdit"
+        formControlName="estadoCodigoUnico">
+      </mat-slide-toggle>
+      <span>Activo</span>
+    </div>
+  </form>
+
+  <div class="infoMessage">
+    <mat-icon>
+      notifications
+    </mat-icon>
+    <span>
+      Los campos marcados con asterisco (*) son obligatorios para poder continuar con el proceso.
+    </span>
+  </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button mat-raised-button color="primary"
+  *ngIf="data.mode == 'CREATE'"
+  [disabled]="codigoUnicoForm.invalid"
+  (click)="validateUniqueCode()">
+    Crear Código Único
+  </button>
+  <button mat-raised-button color="primary"
+  *ngIf="data.mode == 'EDIT'"
+  [disabled]="codigoUnicoForm.invalid"
+  (click)="saveChanges()">
+    Guardar cambios
+  </button>
+  <button mat-button
+  mat-dialog-close>
+    Volver
+  </button>
+</mat-dialog-actions>

@@ -1,0 +1,22 @@
+section {
+    width: 100%;
+    height: 100%;
+
+    .container {
+        padding: 30px;
+        width: 80%;
+        max-width: 1200px;
+        min-width: 680px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px 10px;
+        // place-items: center;
+        // place-content: center;
+        background-color: gray;
+    }
+}
+
+.flex-vertical-center {
+    display: flex;
+    justify-content: center;
+}
