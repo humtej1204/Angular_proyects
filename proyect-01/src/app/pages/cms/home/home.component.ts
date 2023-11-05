@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BasePokemonInfo } from 'src/app/models/pokemon.model';
 
-import { BasePokemonInfo } from '../../models/pokemon.model';
 import { ServiceService } from 'src/app/services/service.service';
 
 @Component({

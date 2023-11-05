@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { Component01Module } from './components/component01.module';
 import { Page01Module } from './pages/page01.module';
 
 import { TokenInterceptor } from './interceptors/token.interceptor';
@@ -18,7 +17,6 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    Component01Module,
     Page01Module,
     HttpClientModule,
     BrowserAnimationsModule

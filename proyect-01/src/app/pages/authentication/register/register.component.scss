@@ -1,45 +1,44 @@
 .register-body {
-  background-image: url('https://wallpaper.dog/large/20532057.jpg');
+  background-image: url('/assets/bg_register.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100%;
-  height: calc(100vh - 80px);
+  width: 100vw;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 
   .register-container {
-    width: 50%;
-    height: 80%;
+    width: 800px;
+    height: 600px;
     display: flex;
-    background-color: rgba($color: #fff, $alpha: 0.90);
-    border-radius: 50px;
-    box-shadow: 0px 0px 15px 5px rgba(200,200,200,0.75);
+    background-color: rgba(#fff, 0.90);
+    box-shadow: 0px 0px 5px 2.5px rgba(#888, 0.75);
+    border-radius: 10px;
+    overflow: hidden;
 
     .logo-img {
       width: 50%;
       height: 100%;
-      border-radius: 50px 0 0 50px;
-      background-image: url('https://i.pinimg.com/originals/19/6c/6c/196c6c0c541d42385dc1bda77a76370a.jpg');
+      background-image: url('/assets/bg_registerCard.jpg');
       background-size: cover;
     }
 
     .form-container {
       background-color: #fff;
-      border-radius: 0 50px 50px 0;
-      width: 50%;
-      height: 100%;
+      flex: 1;
+      padding: 25px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      gap: 20px;
 
       .tittle {
-        font-size: 50px;
+        font-size: 2rem;
         font-weight: 600;
         line-height: normal;
-        margin-bottom: 40px;
-        color: #444;
+        color: #333;
       }
 
       form {
@@ -50,14 +49,13 @@
         align-items: center;
 
         mat-form-field {
-          height: 70px;
-          width: 70%;
+          width: 90%;
         }
 
         &>button {
           width: 150px;
           height: 50px;
-          margin-top: 20px;
+          margin-top: 15px;
         }
       }
     }

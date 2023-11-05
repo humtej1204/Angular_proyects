@@ -1,32 +1,32 @@
 .login-container {
-  background-image: url('https://assets.pokemon.com//assets/cms2/img/misc/virtual-backgrounds/masters/canyon.jpg');
+  background-image: url('/assets/bg_login.webp');
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100%;
-  height: calc(100vh - 80px);
+  width: 100vw;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 
   .tittle {
-    font-size: 50px;
+    font-size: 2rem;
     font-weight: 600;
     line-height: normal;
-    margin-bottom: 50px;
-    color: #444;
+    margin-bottom: 2rem;
+    color: #333333;
   }
 
   .form-container {
-    background-color: rgba($color: #fff, $alpha: 0.90);
-    border-radius: 50px;
-    width: 20%;
-    height: 60%;
+    background-color: rgba(#fff, 0.90);
+    border-radius: 10px;
+    padding: 50px 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
     form {
+      min-width: 300px;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -39,7 +39,7 @@
       }
 
       mat-form-field {
-        width: 70%;
+        width: 90%;
       }
     }
   }

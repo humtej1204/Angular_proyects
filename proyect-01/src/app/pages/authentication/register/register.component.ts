@@ -2,11 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { UserService } from '../../services/user.service';
-
 import { OnExit } from 'src/app/guards/exit.guard';
-
-import { UserDTO } from 'src/app/models/user.model';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +22,8 @@ export class RegisterComponent implements OnInit, OnExit {
     this.buildForm();
   }
 
-  hide = true;
+  hide01 = true;
+  hide02 = true;
 
   ngOnInit(): void {
   }

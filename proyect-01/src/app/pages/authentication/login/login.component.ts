@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { AuthService } from '../../services/auth.service';
-
-import { Auth } from '../../models/auth.model';
-import { User } from '../../models/user.model';
-
 import { switchMap } from 'rxjs';
+import { Auth } from 'src/app/models/auth.model';
+import { User } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -49,16 +48,19 @@ export class LoginComponent implements OnInit {
 
   login(data: any) {
     this.authService.login(data.email, data.password)
-      .pipe(
-        switchMap((res: Auth) => {
-          console.log(res.access_token);
+    .pipe(
+      switchMap((res: Auth) => {
+        console.log(res.access_token);
 
-          return this.authService.getProfile();
-        })
-      ).subscribe((profile: User) => {
+        return this.authService.getProfile();
+      })
+    ).subscribe({
+      next: (profile: User) => {
         console.log(profile);
-        this.router.navigateByUrl('profile')
-      });
+        this.router.navigateByUrl('/user/profile')
+      }, error: (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    })
   }
-
 }

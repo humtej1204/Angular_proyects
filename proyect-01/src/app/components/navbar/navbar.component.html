@@ -1,38 +1,36 @@
-<mat-toolbar color="primary">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>Basic Header</span>
-  <span class="example-spacer">
-    <ul class="links-list">
-      <li *ngIf="!user">
-        <a routerLink="/login">Login</a>
-      </li>
-      <li>
-        <a routerLink="/home">Home</a>
-      </li>
-      <li *ngIf="user">
-        <a routerLink="/pokemon/6">Pokemon-template Page</a>
-      </li>
-      <li *ngIf="user">
-        <a routerLink="/form-test">Form Test</a>
-      </li>
-      <li *ngIf="!user">
-        <a routerLink="/register">Registrarse</a>
-      </li>
-    </ul>
-  </span>
-  <span *ngIf="user">
-    User Loged:
-    <a routerLink="/profile"> {{ user.name }} </a>
-    <button (click)="logout()">LogOut</button>
-  </span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>share</mat-icon>
-  </button>
-</mat-toolbar>
+<header>
+  <b>Pokedex</b>
 
-<div class="header">&nbsp;</div>
+  <ul class="links_list">
+    <li>
+      <a routerLink="/user/pokemones">Pokemon List</a>
+    </li>
+    <li>
+      <a routerLink="/user/pokemon/6">Pokemon-template Page</a>
+    </li>
+    <li>
+      <a routerLink="/user/form-test">Form Test</a>
+    </li>
+  </ul>
+
+  <div class="user_info">
+    <button class="menu_btn" (click)="openMenuProfile()">
+      <img src="/assets/user_avatar.jpg" alt="">
+    </button>
+
+    <div class="menu_cont" *ngIf="user && openMenu">
+      <strong>{{ user.name }}</strong>
+
+      <ul>
+        <li (click)="goProfile()">
+          <mat-icon>person</mat-icon>
+          <span>Ver Perfil</span>
+        </li>
+        <li (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Cerrar Sesión</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>

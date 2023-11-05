@@ -1,0 +1,45 @@
+<div class="register-body">
+  <div class="register-container">
+    <div class="logo-img">&nbsp;</div>
+    <div class="form-container">
+      <h1 class="tittle">Register</h1>
+
+      <form [formGroup]="registerForm" (ngSubmit)="saveData($event)">
+        <mat-form-field appearance="outline">
+          <mat-label>Full Name</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>E-mail</mat-label>
+          <input matInput formControlName="email">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>New password</mat-label>
+          <input matInput [type]="hide01 ? 'password' : 'text'"
+            formControlName="password">
+          <button mat-icon-button matSuffix (click)="hide01 = !hide01" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide01">
+            <mat-icon>{{hide01 ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Confirm the password</mat-label>
+          <input matInput [type]="hide02 ? 'password' : 'text'"
+            [formControl]="confirmPass" />
+          <button mat-icon-button matSuffix (click)="hide02 = !hide02" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide02">
+            <mat-icon>{{hide02 ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <button mat-stroked-button color="primary"
+        type="submit">
+          Registrar
+        </button>
+      </form>
+      
+      <a href="/login">Regresar al Login</a>
+    </div>
+  </div>
+</div>

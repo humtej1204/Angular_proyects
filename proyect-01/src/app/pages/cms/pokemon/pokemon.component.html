@@ -1,16 +1,18 @@
 <section class="pokedex-container">
-  <a [routerLink]="['/pokemon', goPrev()]"
+  <a [routerLink]="['/user/pokemon', goPrev()]"
     class="prev button-chgPage"></a>
   <div class="pokedex-card">
     <div class="baseInfo">
       <div class="image">
         <img [src]="pokemonInfo.img" [alt]="pokemonInfo.name">
         <div class="pokeId">#{{ pokemonInfo.id }}</div>
-        <img
-          class="typeImage"
-          [src]="pokemonType"
-          [alt]="pokemonInfo.name"
-        >
+        <div class="typeImage"
+        [style.background-color]="types[pokemonInfo.types[0]].color">
+          <img
+            [src]="'/assets/pokemon/types/' + pokemonInfo.types[0] + '.svg'"
+            [alt]="pokemonInfo.name"
+          >
+        </div>
       </div>
       <div class="data">
         <p class="pokeName">{{ pokemonInfo.name }}</p>
@@ -68,6 +70,6 @@
       </ul>
     </div>
   </div>
-  <a [routerLink]="['/pokemon', goNext()]"
+  <a [routerLink]="['/user/pokemon', goNext()]"
     class="next button-chgPage"></a>
 </section>
