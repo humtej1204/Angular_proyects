@@ -1,0 +1,14 @@
+<mat-drawer-container class="main_container" hasBackdrop="true">
+    <mat-drawer #drawer mode="over" position="end"
+    [(opened)]="sidebarStatus">
+        <ng-container *ngComponentOutlet="sidebarContent"></ng-container>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <header>HEADER</header>
+        <aside>PRINCIPAL SIDEBAR</aside>
+        <main>
+                <router-outlet></router-outlet>
+        </main>
+    </mat-drawer-content>
+</mat-drawer-container>

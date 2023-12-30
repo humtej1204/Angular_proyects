@@ -1,0 +1,13 @@
+<section class="container">
+    <h1>Test Child-Parent Parent-Child Comunication</h1>
+
+    <div class="components_cont">
+        <div class="child">
+            <app-table-list [data]="dataList"
+            (sendData)="setSelectedData($event)"></app-table-list>
+        </div>
+        <div class="child">
+            <app-data-card [selectedData]="selectedData"></app-data-card>
+        </div>
+    </div>
+</section>

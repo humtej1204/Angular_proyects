@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 10px;
+
+    .card_Data {
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 5px rgba(#666, 0.25);
+        cursor: pointer;
+
+        span {
+            font-size: 50px;
+            font-weight: 900;
+        }
+
+        b {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+    }
+}

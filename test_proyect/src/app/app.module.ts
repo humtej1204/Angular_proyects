@@ -21,7 +21,7 @@ import {PortalModule} from '@angular/cdk/portal';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {CdkStepperModule} from '@angular/cdk/stepper';
 import {CdkTableModule} from '@angular/cdk/table';
-import {CdkTreeModule} from '@angular/cdk/tree';
+import {CdkTreeModule, getTreeControlMissingError} from '@angular/cdk/tree';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
@@ -57,6 +57,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
+import {GoogleMapsModule} from '@angular/google-maps'
 
 // Components
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -69,6 +70,11 @@ import { ConsultarUserComponent } from './views/commerce-redeban-crud/actions-co
 import { VincularUsuarioComponent } from './views/commerce-redeban-crud/actions-commerce-section/vincular-usuario/vincular-usuario.component';
 import { DialogConfirmComponent } from './views/commerce-redeban-crud/actions-commerce-section/dialog-confirm/dialog-confirm.component';
 import { LoadingWindowComponent } from './views/commerce-redeban-crud/actions-commerce-section/loading-window/loading-window.component';
+import { LayoutTestComponent } from './views/layout-test/layout-test.component';
+import { RenderDataComponent } from './views/render-data/render-data.component';
+import { TableListComponent } from './views/render-data/components/table-list/table-list.component';
+import { DataCardComponent } from './views/render-data/components/data-card/data-card.component';
+import { GoogleMapsComponent } from './views/google-maps/google-maps.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +93,12 @@ import { LoadingWindowComponent } from './views/commerce-redeban-crud/actions-co
     CrearTerminalComponent,
     VincularUsuarioComponent,
     DialogConfirmComponent,
-    LoadingWindowComponent
+    LoadingWindowComponent,
+    LayoutTestComponent,
+    RenderDataComponent,
+    TableListComponent,
+    DataCardComponent,
+    GoogleMapsComponent,
   ],
   imports: [
     BrowserModule,
@@ -141,6 +152,7 @@ import { LoadingWindowComponent } from './views/commerce-redeban-crud/actions-co
     PortalModule,
     ScrollingModule,
     HttpClientModule,
+    GoogleMapsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

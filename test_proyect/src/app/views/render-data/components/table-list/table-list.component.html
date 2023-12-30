@@ -1,0 +1,8 @@
+<section class="container">
+    <div class="card_Data"
+    *ngFor="let elem of data"
+    (click)="sendDataToParent(elem)">
+        <span>{{elem.symbol}}</span>
+        <b>{{elem.name}}</b>
+    </div>
+</section>

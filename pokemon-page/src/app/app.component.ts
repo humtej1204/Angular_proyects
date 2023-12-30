@@ -9,7 +9,7 @@ import { TokenService } from './services/token.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'proyect-01';
+  title = 'pokemon-page';
 
   constructor(
     private tokenService: TokenService,

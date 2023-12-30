@@ -1,0 +1,39 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+
+$pokemon-page-primary: mat.define-palette(mat.$indigo-palette);
+$pokemon-page-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$pokemon-page-warn: mat.define-palette(mat.$red-palette);
+
+
+$pokemon-page-theme: mat.define-light-theme((
+  color: (
+    primary: $pokemon-page-primary,
+    accent: $pokemon-page-accent,
+    warn: $pokemon-page-warn,
+  )
+));
+
+
+
+@include mat.all-component-themes($pokemon-page-theme);
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+}
