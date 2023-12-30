@@ -9,17 +9,23 @@ import { AppComponent } from './app.component';
 import { Page01Module } from './pages/page01.module';
 
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
     AppComponent,
+    DialogComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     Page01Module,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {

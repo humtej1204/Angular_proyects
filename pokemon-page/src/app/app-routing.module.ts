@@ -8,7 +8,6 @@ import { ExitGuard } from './guards/exit.guard';
 import { PokemonLayoutComponent } from './pages/layouts/pokemon-layout/pokemon-layout.component';
 import { LoginComponent } from './pages/authentication/login/login.component';
 import { RegisterComponent } from './pages/authentication/register/register.component';
-import { FormTemplateComponent } from './pages/cms/form-template/form-template.component';
 import { HomeComponent } from './pages/cms/home/home.component';
 import { PokemonComponent } from './pages/cms/pokemon/pokemon.component';
 import { ProfileComponent } from './pages/cms/profile/profile.component';
@@ -42,10 +41,6 @@ const routes: Routes = [
       {
         path: 'pokemon/:pokeId',
         component: PokemonComponent,
-      },
-      {
-        path: 'form-test',
-        component: FormTemplateComponent,
       },
       {
         path: '**', pathMatch: 'full', redirectTo: 'profile'

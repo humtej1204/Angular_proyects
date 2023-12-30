@@ -3,7 +3,6 @@
     type="text"
     placeholder="Buscar Pokemon"
     #txtSearch
-    (keyup)="onSearchPokemon(txtSearch.value)"
   />
   <button
     (click)="onSearchPokemon(txtSearch.value)"
@@ -14,6 +13,6 @@
 
 <app-pokemon-list
   [pokemonData]="pokemonData"
-  [pokemonArraySlice]="pokemonArraySlice"
   [paginatorOptions]="paginatorOptions"
+  (changePage)="changePage($event)"
 ></app-pokemon-list>

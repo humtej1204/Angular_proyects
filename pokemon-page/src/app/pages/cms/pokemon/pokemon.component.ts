@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Pokemon } from 'src/app/models/pokemon.model';
-
-import { ServiceService } from 'src/app/services/service.service';
+import { ServiceService } from 'src/app/services/api-services/pokemon/service.service';
 
 
 @Component({

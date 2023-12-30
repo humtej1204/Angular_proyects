@@ -6,7 +6,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 /* Components */
 import { PokemonLayoutComponent } from './layouts/pokemon-layout/pokemon-layout.component';
 import { NavbarComponent } from '../components/navbar/navbar.component';
-import { FormTemplateComponent } from './cms/form-template/form-template.component';
 import { PokemonCardComponent } from './cms/home/pokemon-list/pokemon-card/pokemon-card.component';
 import { PokemonListComponent } from './cms/home/pokemon-list/pokemon-list.component';
 import { PokemonComponent } from './cms/pokemon/pokemon.component';
@@ -28,7 +27,6 @@ import { RegisterComponent } from './authentication/register/register.component'
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    FormTemplateComponent,
     PokemonLayoutComponent,
     NavbarComponent
   ],

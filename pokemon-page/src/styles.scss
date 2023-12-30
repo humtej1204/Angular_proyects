@@ -1,5 +1,6 @@
 @use '@angular/material' as mat;
 @include mat.core();
+@import "app/styles/dialogs";
 
 
 $pokemon-page-primary: mat.define-palette(mat.$indigo-palette);
@@ -18,8 +19,6 @@ $pokemon-page-theme: mat.define-light-theme((
 
 
 @include mat.all-component-themes($pokemon-page-theme);
-
-
 
 * {
   margin: 0;

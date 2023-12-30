@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 
 /* Modelos */
@@ -9,30 +9,26 @@ import { BasePokemonInfo } from 'src/app/models/pokemon.model';
   templateUrl: './pokemon-list.component.html',
   styleUrls: ['./pokemon-list.component.scss']
 })
-export class PokemonListComponent implements OnInit {
+export class PokemonListComponent {
 
   constructor() { }
 
   @Input() pokemonData: BasePokemonInfo[] = [];
-  @Input() pokemonArraySlice: BasePokemonInfo[] = [];
   @Input() paginatorOptions: any = {
     length: 0,
     pageSize: 0,
     pageIndex: 0,
     pageSizeOptions: []
   }
+  @Output() changePage = new EventEmitter<any>();
 
-  ngOnInit(): void { }
-
-  OnPageChange(event: PageEvent) {
-    const startIndex = event.pageIndex * event.pageSize;
-    let endIndex = startIndex + event.pageSize;
-
-    if (endIndex > this.pokemonData.length) {
-      endIndex = this.pokemonData.length;
+  onPageChange(event: PageEvent) {
+    this.paginatorOptions = {
+      ...this.paginatorOptions,
+      length: event.length,
+      pageSize: event.pageSize,
+      pageIndex: event.pageIndex,
     }
-
-    this.pokemonArraySlice = this.pokemonData.slice(startIndex, endIndex);
-    this.paginatorOptions.pageSize = event.pageSize;
+    this.changePage.emit(this.paginatorOptions);
   }
 }

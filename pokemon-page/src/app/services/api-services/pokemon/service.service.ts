@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs';
-import { Pokemon, PokemonFirstInfo, BasePokemonInfo } from '../models/pokemon.model';
+import { BehaviorSubject, map, tap } from 'rxjs';
+import { PokemonFirstInfo, BasePokemonInfo, Pokemon } from 'src/app/models/pokemon.model';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ServiceService {
+  private pokemonCount = new BehaviorSubject<number>(0);
+  pokemonCount$ = this.pokemonCount.asObservable();
 
   constructor(
     private http: HttpClient
@@ -16,16 +18,15 @@ export class ServiceService {
   url = 'https://pokeapi.co/api/v2/pokemon'
 
 
-  getAllPokemons(offset: number = 0, limit: number = 1154) {
+  getPokemonsData(offset: number = 0, limit: number = 100000) {
     const url01 = `${this.url}?offset=${offset}&limit=${limit}`
-    const data = this.http.get<any>(url01)
-      .pipe(
-        map(item => item.results.map((pokemon: PokemonFirstInfo) => {
-          return this.getPokemones(pokemon.url);
-        })
-      ));
-
-    return data;
+    return this.http.get<any>(url01)
+    .pipe(
+      tap(res => this.pokemonCount.next(res.count)),
+      map(item => item.results.map((pokemon: PokemonFirstInfo) => {
+        return this.getPokemones(pokemon.url);
+      })
+    ));
   }
 
   getPokemon(id: string) {

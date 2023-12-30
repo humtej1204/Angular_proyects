@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { OnExit } from 'src/app/guards/exit.guard';
-import { UserService } from 'src/app/services/user.service';
+import { UserService } from 'src/app/services/api-services/user/user.service';
 
 @Component({
   selector: 'app-register',

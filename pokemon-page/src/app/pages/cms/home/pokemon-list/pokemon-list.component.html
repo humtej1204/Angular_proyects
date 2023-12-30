@@ -5,14 +5,13 @@
     [pageSize]="paginatorOptions.pageSize"
     [pageIndex]="paginatorOptions.pageIndex"
     [showFirstLastButtons]="true"
-    (page)="OnPageChange($event)"
-    aria-label="Select page">
+    (page)="onPageChange($event)">
   </mat-paginator>
 
   <div class="container">
     <app-pokemon-card
       [pokemon]="pokemon"
-      *ngFor="let pokemon of pokemonArraySlice"
+      *ngFor="let pokemon of pokemonData"
     ></app-pokemon-card>
   </div>
 
@@ -22,7 +21,6 @@
     [pageSize]="paginatorOptions.pageSize"
     [pageIndex]="paginatorOptions.pageIndex"
     [showFirstLastButtons]="true"
-    (page)="OnPageChange($event)"
-    aria-label="Select page">
+    (page)="onPageChange($event)">
   </mat-paginator>
 </div>

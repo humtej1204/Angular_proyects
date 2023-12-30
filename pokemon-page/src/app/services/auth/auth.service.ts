@@ -3,12 +3,12 @@ import { HttpClient } from '@angular/common/http';
 
 import { tap, BehaviorSubject } from 'rxjs';
 
-import { Auth } from '../models/auth.model';
-import { User } from '../models/user.model';
+import { Auth } from '../../models/auth.model';
+import { User } from '../../models/user.model';
 
 import { TokenService } from './token.service';
 
-import { checkToken } from '../interceptors/token.interceptor';
+import { checkToken } from '../../interceptors/token.interceptor';
 
 @Injectable({
   providedIn: 'root'

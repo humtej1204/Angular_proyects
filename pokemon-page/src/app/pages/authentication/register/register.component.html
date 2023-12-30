@@ -19,7 +19,9 @@
           <mat-label>New password</mat-label>
           <input matInput [type]="hide01 ? 'password' : 'text'"
             formControlName="password">
-          <button mat-icon-button matSuffix (click)="hide01 = !hide01" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide01">
+          <button mat-icon-button matSuffix
+          (click)="hide01 = !hide01" type="button"
+          [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide01">
             <mat-icon>{{hide01 ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
         </mat-form-field>
@@ -28,7 +30,9 @@
           <mat-label>Confirm the password</mat-label>
           <input matInput [type]="hide02 ? 'password' : 'text'"
             [formControl]="confirmPass" />
-          <button mat-icon-button matSuffix (click)="hide02 = !hide02" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide02">
+          <button mat-icon-button matSuffix
+          (click)="hide02 = !hide02" type="button"
+          [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide02">
             <mat-icon>{{hide02 ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
         </mat-form-field>
