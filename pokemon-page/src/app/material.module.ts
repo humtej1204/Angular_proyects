@@ -98,4 +98,4 @@ import {DialogModule} from '@angular/cdk/dialog';
   ]
 })
 
-export class MaterialExampleModule {}
+export class MaterialModule {}

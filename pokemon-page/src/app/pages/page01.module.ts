@@ -13,7 +13,7 @@ import { ProfileComponent } from './cms/profile/profile.component';
 import { HomeComponent } from './cms/home/home.component';
 
 /* Angular Materials */
-import { MaterialExampleModule } from '../material.module';
+import { MaterialModule } from '../material.module';
 import { MatNativeDateModule } from '@angular/material/core';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
@@ -33,7 +33,7 @@ import { RegisterComponent } from './authentication/register/register.component'
   imports: [
     CommonModule,
     MatNativeDateModule,
-    MaterialExampleModule,
+    MaterialModule,
     RouterModule,
     ReactiveFormsModule,
   ]

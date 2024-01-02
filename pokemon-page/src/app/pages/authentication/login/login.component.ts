@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { switchMap } from 'rxjs';
+import { catchError, switchMap, take } from 'rxjs';
 import { Auth } from 'src/app/models/auth.model';
 import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { SnackbarService } from 'src/app/services/ui-services/snackbar/snackbar.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private snackbarServ: SnackbarService
   ) {
     this.buildForm();
   }
@@ -39,7 +41,7 @@ export class LoginComponent implements OnInit {
 
   sendData(event: Event) {
     if (this.loginForm.invalid) {
-      console.log('Please fill the Form');
+      this.snackbarServ.openSnackbar('Ingrese los datos para continuar', 'error');
       return;
     }
 
@@ -49,17 +51,13 @@ export class LoginComponent implements OnInit {
   login(data: any) {
     this.authService.login(data.email, data.password)
     .pipe(
-      switchMap((res: Auth) => {
-        console.log(res.access_token);
-
-        return this.authService.getProfile();
-      })
+      switchMap((res: Auth) => this.authService.getProfile())
     ).subscribe({
       next: (profile: User) => {
-        console.log(profile);
         this.router.navigateByUrl('/user/profile')
       }, error: (error: HttpErrorResponse) => {
-        console.log(error);
+        this.snackbarServ.openSnackbar(`Error code ${error.status}: ${error.error.message}`, 'error');
+        console.error(error);
       }
     })
   }

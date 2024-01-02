@@ -1,6 +1,7 @@
 @use '@angular/material' as mat;
 @include mat.core();
 @import "app/styles/dialogs";
+@import "app/styles/snackbars";
 
 
 $pokemon-page-primary: mat.define-palette(mat.$indigo-palette);

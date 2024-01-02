@@ -12,8 +12,8 @@
       <img src="/assets/user_avatar.jpg" alt="">
     </button>
 
-    <div class="menu_cont" *ngIf="user && openMenu">
-      <strong>{{ user.name }}</strong>
+    <div class="menu_cont" *ngIf="openMenu">
+      <strong>{{ user?.name }}</strong>
 
       <ul>
         <li (click)="goProfile()">

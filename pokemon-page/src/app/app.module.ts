@@ -12,12 +12,15 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SnackbarComponent } from './components/snackbar/snackbar.component';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     DialogComponent,
     LoadingComponent,
+    SnackbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     Page01Module,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MaterialModule
   ],
   providers: [
     {
