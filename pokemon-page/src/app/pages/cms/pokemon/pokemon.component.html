@@ -7,7 +7,7 @@
         <img [src]="pokemonInfo.img" [alt]="pokemonInfo.name">
         <div class="pokeId">#{{ pokemonInfo.id }}</div>
         <div class="typeImage"
-        [style.background-color]="types[pokemonInfo.types[0]].color">
+        [style.background-color]="types[pokemonInfo.types[0]]?.color">
           <img
             [src]="'/assets/pokemon/types/' + pokemonInfo.types[0] + '.svg'"
             [alt]="pokemonInfo.name"

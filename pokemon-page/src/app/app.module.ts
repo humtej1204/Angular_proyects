@@ -6,30 +6,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { Page01Module } from './pages/page01.module';
+import { PagesModule } from './pages/pages.module';
 
 import { TokenInterceptor } from './interceptors/token.interceptor';
-import { DialogComponent } from './components/dialog/dialog.component';
-import { LoadingComponent } from './components/loading/loading.component';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { MaterialModule } from './material.module';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogComponent,
-    LoadingComponent,
-    SnackbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    Page01Module,
+    PagesModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatProgressSpinnerModule,
-    MaterialModule
+    MaterialModule,
+    ComponentsModule
   ],
   providers: [
     {

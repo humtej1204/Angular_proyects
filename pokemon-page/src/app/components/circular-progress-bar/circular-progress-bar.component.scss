@@ -1,0 +1,23 @@
+.circular_progress {
+    position: relative;
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ng-content {
+        overflow: hidden;
+        padding: 5px;
+    }
+}
+
+.circular_progress::before {
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    border-radius: 100%;
+    background-color: white;
+}

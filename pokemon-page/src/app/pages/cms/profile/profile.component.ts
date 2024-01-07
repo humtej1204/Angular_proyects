@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from 'src/app/services/auth/auth.service';
 
-import { User } from 'src/app/models/user.model';
+import { IUserProfile } from 'src/app/models/user.model';
 
 
 @Component({
@@ -16,10 +16,11 @@ export class ProfileComponent implements OnInit {
     private authService: AuthService,
   ) { }
 
-  user: User | null = null;
+  user: IUserProfile | null = null;
 
   ngOnInit(): void {
-    this.authService.getProfile().subscribe(data => {
+    this.authService.myProfile$
+    .subscribe(data => {
       this.user = data;
     });
   }

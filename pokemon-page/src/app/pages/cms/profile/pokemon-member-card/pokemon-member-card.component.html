@@ -1,0 +1,10 @@
+<div class="pokemon_card">
+    <div class="pokemon_img"
+    [ngStyle]="{
+        'background-image': getTypeIcon(pokemonData!.types[0]),
+        'border': '5px solid ' + getTypeColor(pokemonData!.types[0])
+    }">
+        <img [src]="pokemonData?.img" [alt]="pokemonData?.name">
+    </div>
+    <span>{{pokemonData?.name | titlecase }}</span>
+</div>

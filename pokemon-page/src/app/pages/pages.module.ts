@@ -5,18 +5,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 /* Components */
 import { PokemonLayoutComponent } from './layouts/pokemon-layout/pokemon-layout.component';
-import { NavbarComponent } from '../components/navbar/navbar.component';
 import { PokemonCardComponent } from './cms/home/pokemon-list/pokemon-card/pokemon-card.component';
 import { PokemonListComponent } from './cms/home/pokemon-list/pokemon-list.component';
 import { PokemonComponent } from './cms/pokemon/pokemon.component';
 import { ProfileComponent } from './cms/profile/profile.component';
 import { HomeComponent } from './cms/home/home.component';
+import { PokemonMemberCardComponent } from './cms/profile/pokemon-member-card/pokemon-member-card.component';
 
 /* Angular Materials */
 import { MaterialModule } from '../material.module';
 import { MatNativeDateModule } from '@angular/material/core';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { RegisterComponent } from './authentication/register/register.component'
     RegisterComponent,
     ProfileComponent,
     PokemonLayoutComponent,
-    NavbarComponent
+    PokemonMemberCardComponent,
   ],
   imports: [
     CommonModule,
@@ -36,6 +37,7 @@ import { RegisterComponent } from './authentication/register/register.component'
     MaterialModule,
     RouterModule,
     ReactiveFormsModule,
+    ComponentsModule
   ]
 })
-export class Page01Module { }
+export class PagesModule { }

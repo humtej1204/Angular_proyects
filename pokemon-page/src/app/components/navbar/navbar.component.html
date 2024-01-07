@@ -9,7 +9,7 @@
 
   <div class="user_info">
     <button class="menu_btn" (click)="openMenuProfile()">
-      <img src="/assets/user_avatar.jpg" alt="">
+      <img [src]="user?.avatar" alt="avatar_img">
     </button>
 
     <div class="menu_cont" *ngIf="openMenu">

@@ -1,8 +1,74 @@
-<div *ngIf="user">
-  <h1>My Profile</h1>
-  <p>{{ user.id }}</p>
-  <p>{{ user.name }}</p>
-  <p>{{ user.email }}</p>
-  <p>{{ user.password }}</p>
-  <!-- <p>{{ user.role }}</p> -->
+<div class="profile_section">
+  <h1>Profile</h1>
+  
+  <div class="profile_container">
+    <div class="left_section">
+      <img [src]="user?.avatar" alt="">
+    
+      <section class="profile_user_data card_blur">
+        <h2 class="grid_full">{{ user?.name }}</h2>
+        <span class="grid_full">
+          <b>Id:</b> {{ user?.id }}
+        </span>
+        <span class="grid_full">
+          <b>Email:</b> {{ user?.email }}
+        </span>
+        <span>
+          <b>Edad:</b> {{ user?.age }}
+        </span>
+        <span>
+          <b>Cumpleaños:</b> {{ user?.birthday | date: 'dd/MM/yyyy' }}
+        </span>
+        <span>
+          <b>Region:</b> {{ user?.region }}
+        </span>
+        <span>
+          <b>Ciudad Natal:</b> {{ user?.hometown }}
+        </span>
+        <span>
+          <b>Clase:</b> {{ user?.class }}
+        </span>
+        <span>
+          <b>Rango:</b> {{ user?.range }}
+        </span>
+        <span>
+          <b>Pokemones Atrapados:</b> {{ user?.pokemonsCatched }}
+        </span>
+    
+        <div class="user_lvl grid_full">
+          <b>Nivel {{ user?.level }}</b>
+          <span> {{ user?.exp }} / {{(user?.level ?? 1) * 1000}} XP</span>
+        </div>
+      </section>
+    </div>
+
+    <div class="right_section">
+      <section class="profile_pokemons card_blur">
+        <h3 class="title">Equipo Pokemon</h3>
+        
+        <div class="team_container">
+          <pokemon-member-card
+          *ngFor="let id of user?.pokemonTeam"
+          [pokemonId]="id"
+          >
+          </pokemon-member-card>
+        </div>
+      </section>
+
+      <section class="profile_medals card_blur">
+        <h3 class="title">Insignias</h3>
+
+        <div class="medals_container">
+          <div class="medal_item" *ngFor="let i of [1,2,3,4,5,6,7,8,9,0]">
+            <circular-progress-bar>
+              <div class="progress_content">
+                <img src="/assets/pokemon/achieve_icons/insignia_bronce.png" alt="">
+              </div>
+            </circular-progress-bar>
+            <span>Corredor</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 </div>

@@ -1,6 +1,8 @@
 <div class="snackbar_container">
-    <mat-icon>{{data.icon}}</mat-icon>
-    <span>{{data.msg}}</span>
+    <div class="snackbar_data">
+        <mat-icon>{{data.icon}}</mat-icon>
+        <span>{{data.msg}}</span>
+    </div>
     <button mat-icon-button (click)="snackBarRef.dismiss()">
         <mat-icon>close</mat-icon>
     </button>

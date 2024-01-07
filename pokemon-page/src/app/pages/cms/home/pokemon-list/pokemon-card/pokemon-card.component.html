@@ -1,8 +1,8 @@
 <a [routerLink]="['/user/pokemon', pokemon.id]">
   <div
     class="pokedex-card"
-    *ngIf="pokemon.img !== null"
-    [style.background-color]='typeColors[pokemon.types[0]]'
+    *ngIf="pokemon"
+    [style.background-color]='typeColors[pokemon.types[0]]?.color'
   >
     <div class="pokedex-head">
       <h2 class="poke-name">{{ pokemon.name }}</h2>

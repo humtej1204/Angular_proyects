@@ -29,7 +29,7 @@ export class ServiceService {
     ));
   }
 
-  getPokemon(id: string) {
+  getPokemon(id: string | number) {
     return this.http.get(`${this.url}/${id}`)
       .pipe(
         map((data) => this.moldPokemonData(data))
