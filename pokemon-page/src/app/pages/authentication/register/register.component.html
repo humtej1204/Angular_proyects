@@ -8,6 +8,8 @@
         <mat-form-field appearance="outline">
           <mat-label>Full Name</mat-label>
           <input matInput formControlName="name">
+          <mat-error [inputErrorMessage]="registerForm.get('name')">
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">

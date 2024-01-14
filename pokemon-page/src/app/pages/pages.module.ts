@@ -18,6 +18,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { ComponentsModule } from '../components/components.module';
+import { InputErrorMessageDirective } from '../directives/input-error-message/input-error-message.directive';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ComponentsModule } from '../components/components.module';
     ProfileComponent,
     PokemonLayoutComponent,
     PokemonMemberCardComponent,
+    InputErrorMessageDirective
   ],
   imports: [
     CommonModule,
