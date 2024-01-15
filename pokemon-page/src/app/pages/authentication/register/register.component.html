@@ -8,13 +8,13 @@
         <mat-form-field appearance="outline">
           <mat-label>Full Name</mat-label>
           <input matInput formControlName="name">
-          <mat-error [inputErrorMessage]="registerForm.get('name')">
-          </mat-error>
+          <mat-error inputErrorMessage="name"></mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>E-mail</mat-label>
           <input matInput formControlName="email">
+          <mat-error inputErrorMessage="email"></mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
@@ -22,10 +22,10 @@
           <input matInput [type]="hide01 ? 'password' : 'text'"
             formControlName="password">
           <button mat-icon-button matSuffix
-          (click)="hide01 = !hide01" type="button"
-          [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide01">
+          (click)="hide01 = !hide01" type="button">
             <mat-icon>{{hide01 ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
+          <mat-error inputErrorMessage="password"></mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
@@ -33,10 +33,10 @@
           <input matInput [type]="hide02 ? 'password' : 'text'"
             [formControl]="confirmPass" />
           <button mat-icon-button matSuffix
-          (click)="hide02 = !hide02" type="button"
-          [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide02">
+          (click)="hide02 = !hide02" type="button">
             <mat-icon>{{hide02 ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
+          <mat-error [inputErrorMessage]="confirmPass"></mat-error>
         </mat-form-field>
 
         <button mat-stroked-button color="primary"
