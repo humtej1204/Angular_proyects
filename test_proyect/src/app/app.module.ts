@@ -21,7 +21,7 @@ import {PortalModule} from '@angular/cdk/portal';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {CdkStepperModule} from '@angular/cdk/stepper';
 import {CdkTableModule} from '@angular/cdk/table';
-import {CdkTreeModule, getTreeControlMissingError} from '@angular/cdk/tree';
+import {CdkTreeModule} from '@angular/cdk/tree';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
@@ -75,6 +75,7 @@ import { RenderDataComponent } from './views/render-data/render-data.component';
 import { TableListComponent } from './views/render-data/components/table-list/table-list.component';
 import { DataCardComponent } from './views/render-data/components/data-card/data-card.component';
 import { GoogleMapsComponent } from './views/google-maps/google-maps.component';
+import { SearchAutocompleteComponent } from './views/search-autocomplete/search-autocomplete.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +100,7 @@ import { GoogleMapsComponent } from './views/google-maps/google-maps.component';
     TableListComponent,
     DataCardComponent,
     GoogleMapsComponent,
+    SearchAutocompleteComponent,
   ],
   imports: [
     BrowserModule,

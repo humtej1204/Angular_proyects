@@ -1,0 +1,22 @@
+form {
+    width: min-content;
+    padding: 0 15px;
+    display: flex;
+    gap: 1rem;
+    color: rgba(0, 0, 0, 0.12);
+    border: 1px solid currentColor;
+    border-radius: 5px;
+
+    ::ng-deep {
+        .mat-form-field-wrapper {padding-bottom: 11px;}
+        .mat-form-field-underline {display: none;}
+    }
+
+    mat-form-field {
+        color: black;
+    }
+
+    .input_text {
+        width: 250px;
+    }
+}
